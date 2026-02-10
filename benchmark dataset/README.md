@@ -7,7 +7,7 @@
 - **Data Content:** Contains customer service corpora with 27 specific intents such as order checks and refunds, 100 slot tags, and dialog breakdown markers.
 - **Reference:** [HuggingFace Link](https://huggingface.co/datasets/bitext/Bitext-customer-support-llm-chatbot-training-dataset)
 
- 2. Fear Speech Dataset
+### 2. Fear Speech Dataset
 - **Description:** Used for AI Safety Alignment, specifically designed to detect implicit fear speech that is not profane but is maliciously inflammatory.
 - **Data Content:** Approximately 40,000 posts from the Gab platform, manually annotated as fear speech, hate speech, or normal.
 - **Reference:** [GitHub Repository](https://github.com/punyajoy/Fearspeech-project)
