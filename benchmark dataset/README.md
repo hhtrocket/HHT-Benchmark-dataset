@@ -17,7 +17,7 @@
 - **Data Content:** News documents paired with high-quality human summaries that have undergone rigorous denoising and consistency filtering.
 - **Reference:** [GitHub Repository](https://github.com/GEM-benchmark/MTurkRequirementPipeline)
 
----
+
 
 ## 🔸 Category 2: AI Agent Core Capabilities
 
