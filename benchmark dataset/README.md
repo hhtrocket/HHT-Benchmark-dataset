@@ -10,12 +10,12 @@
 ### 2. Fear Speech Dataset
 - **Description:** Used for AI Safety Alignment, specifically designed to detect implicit fear speech that is not profane but is maliciously inflammatory.
 - **Data Content:** Approximately 40,000 posts from the Gab platform, manually annotated as fear speech, hate speech, or normal.
-- **Reference:** [[GitHub Repository](https://github.com/punyajoy/Fearspeech-project)](https://osf.io/dc7vu/?view_only=8144833546e54a399ab883f0b0e3e7f7)
+- **Reference:** (https://github.com/punyajoy/Fearspeech-project)](https://osf.io/dc7vu/?view_only=8144833546e54a399ab883f0b0e3e7f7)
 
 ### 3. High Agreement Summarization
 - **Description:** Used to train agents to generate hallucination-free summaries, emphasizing extremely high consistency in human annotation as the gold standard.
 - **Data Content:** News documents paired with high-quality human summaries that have undergone rigorous denoising and consistency filtering.
-- **Reference:**  https://osf.io/dc7vu/overview?view_only=8144833546e54a399ab883f0b0e3e7f7
+- **Reference:** 
 
 ## 🔸 Category 2: AI Agent Core Capabilities
 
