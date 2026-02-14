@@ -1,3 +1,16 @@
+我已将所有内容转换为**完全兼容 GitHub README 格式**的代码。
+
+我对之前导致显示问题的部分进行了以下修正：
+
+1. **清理了所有不可见的特殊空格符**（这是导致 Mermaid 渲染失败的主要原因）。
+2. **移除了不必要的缩进**，确保代码块顶格书写。
+3. **调整了 ````mermaid` 标记的位置**，确保其上下都有空行。
+
+请直接复制以下整个代码块，保存为 `README.md` 即可完美显示。
+
+---
+
+```markdown
 # AI Agent Evaluation Frameworks: A Comparative Survey
 
 This repository provides a concise overview and visualization of evaluation methodologies from three significant papers in the field of AI Agents. The focus is on understanding **how** these agents are evaluated across different domains: Clinical Simulation, Tool Utilization, and Data Science.
@@ -49,17 +62,24 @@ graph LR
     Metric1 --> Report["11. Evaluation Report"]:::report
     Metric2 --> Report
     Metric3 --> Report
-2. MCPEval: Automatic MCP-based Deep Evaluation
-Domain: Tool Use / Model Context Protocol
 
-"Revolutionize AI assessment with a fully automated, self-verifying pipeline that synthesizes high-quality benchmarks and evaluates complex tool-use at scale."
+```
 
-Phase 1: Benchmark Construction The system automates dataset creation by employing a Generator LLM to synthesize tasks based on specific tool definitions. To ensure validity, a Verifier Agent attempts to solve each generated task. Only scenarios that are successfully resolved by this frontier model are retained in the final Benchmark Set, while unsolvable ones are discarded to maintain high quality.
+---
 
-Phase 2: Evaluation Pipeline The assessment stage involves the Target Agent executing these verified tasks to produce a Predicted Trajectory. An automated LLM Judge then compares this output against the reference Gold Trajectory. The performance is quantified using metrics such as Exact Match for precision and Plan Quality for reasoning logic, providing a comprehensive score of agent capability.
+## 2. MCPEval: Automatic MCP-based Deep Evaluation
 
-Workflow Visualization
-Code snippet
+> **Domain:** Tool Use / Model Context Protocol
+
+> *"Revolutionize AI assessment with a fully automated, self-verifying pipeline that synthesizes high-quality benchmarks and evaluates complex tool-use at scale."*
+
+**Phase 1: Benchmark Construction** The system automates dataset creation by employing a Generator LLM to synthesize tasks based on specific tool definitions. To ensure validity, a Verifier Agent attempts to solve each generated task. Only scenarios that are successfully resolved by this frontier model are retained in the final Benchmark Set, while unsolvable ones are discarded to maintain high quality.
+
+**Phase 2: Evaluation Pipeline** The assessment stage involves the Target Agent executing these verified tasks to produce a Predicted Trajectory. An automated LLM Judge then compares this output against the reference Gold Trajectory. The performance is quantified using metrics such as Exact Match for precision and Plan Quality for reasoning logic, providing a comprehensive score of agent capability.
+
+### Workflow Visualization
+
+```mermaid
 graph LR
     %% Style Definitions
     classDef p1 fill:#e3f2fd,stroke:#1565c0,stroke-width:2px;
@@ -106,15 +126,22 @@ graph LR
 
     %% Connect the two phases
     GoldData --> Target
-3. DeepAnalyze: Autonomous Data Science
-Domain: Data Analysis / End-to-End Execution
 
-Autonomous Execution Phase The target agent receives natural language instructions and raw data, autonomously managing the full loop from code generation to execution. It must not only ensure the Python code runs successfully to produce accurate charts but also synthesize these findings into a deep research report, replicating the workflow of a human data analyst.
+```
 
-Hybrid Evaluation Phase The scoring system integrates objective rules with subjective judgment. A Rule-Based Judge verifies hard metrics such as code executability, file validity, and calculation accuracy. Simultaneously, an LLM Judge assesses soft metrics regarding the research report, including its helpfulness, logical coherence, and readability. These are combined into a final weighted score to ensure the assessment is both precise and holistic.
+---
 
-Workflow Visualization
-Code snippet
+## 3. DeepAnalyze: Autonomous Data Science
+
+> **Domain:** Data Analysis / End-to-End Execution
+
+**Autonomous Execution Phase** The target agent receives natural language instructions and raw data, autonomously managing the full loop from code generation to execution. It must not only ensure the Python code runs successfully to produce accurate charts but also synthesize these findings into a deep research report, replicating the workflow of a human data analyst.
+
+**Hybrid Evaluation Phase** The scoring system integrates objective rules with subjective judgment. A Rule-Based Judge verifies hard metrics such as code executability, file validity, and calculation accuracy. Simultaneously, an LLM Judge assesses soft metrics regarding the research report, including its helpfulness, logical coherence, and readability. These are combined into a final weighted score to ensure the assessment is both precise and holistic.
+
+### Workflow Visualization
+
+```mermaid
 graph LR
     %% Style Definitions
     classDef p1 fill:#e3f2fd,stroke:#1565c0,stroke-width:2px;
@@ -173,3 +200,13 @@ graph LR
 
     %% Link Phases
     Phase1 --> Phase2
+
+```
+
+---
+
+*Diagrams generated using [Mermaid.js](https://mermaid.js.org).*
+
+```
+
+```
