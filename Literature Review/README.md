@@ -58,8 +58,6 @@ graph LR
 
 > **Domain:** Tool Use / Model Context Protocol
 
-> *"Revolutionize AI assessment with a fully automated, self-verifying pipeline that synthesizes high-quality benchmarks and evaluates complex tool-use at scale."*
-
 **Phase 1: Benchmark Construction** The system automates dataset creation by employing a Generator LLM to synthesize tasks based on specific tool definitions. To ensure validity, a Verifier Agent attempts to solve each generated task. Only scenarios that are successfully resolved by this frontier model are retained in the final Benchmark Set, while unsolvable ones are discarded to maintain high quality.
 
 **Phase 2: Evaluation Pipeline** The assessment stage involves the Target Agent executing these verified tasks to produce a Predicted Trajectory. An automated LLM Judge then compares this output against the reference Gold Trajectory. The performance is quantified using metrics such as Exact Match for precision and Plan Quality for reasoning logic, providing a comprehensive score of agent capability.
