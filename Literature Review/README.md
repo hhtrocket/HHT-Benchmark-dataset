@@ -1,11 +1,6 @@
 
 ---
 
-```markdown
-# AI Agent Evaluation Frameworks: A Comparative Survey
-
-This repository provides a concise overview and visualization of evaluation methodologies from three significant papers in the field of AI Agents. The focus is on understanding **how** these agents are evaluated across different domains: Clinical Simulation, Tool Utilization, and Data Science.
-
 ---
 
 ## 1. AgentClinic: Multimodal Clinical Simulation
@@ -19,6 +14,7 @@ This repository provides a concise overview and visualization of evaluation meth
 * **Robustness:** Adversarial noise and biases are injected to test stability and objectivity under pressure.
 
 ### Workflow Visualization
+
 ```mermaid
 graph LR
     %% Style Definitions
@@ -52,8 +48,6 @@ graph LR
     Metric1 --> Report["11. Evaluation Report"]:::report
     Metric2 --> Report
     Metric3 --> Report
-
-```
 
 ---
 
