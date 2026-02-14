@@ -1,6 +1,3 @@
-这是一个为您整理好的 `README.md` 文件。我已将 `conclusion.docx` 中的文本内容与之前生成的 Mermaid 流程图代码完美整合。
-
-您可以直接复制以下代码块，保存为 `README.md` 即可在 GitHub 上预览效果。
 
 ---
 
