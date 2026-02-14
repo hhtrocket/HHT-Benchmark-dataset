@@ -4,6 +4,7 @@
 ---
 
 ## 1. AgentClinic: Multimodal Clinical Simulation
+
 > **Domain:** Healthcare / Interactive Diagnosis
 
 **Dynamic Interaction Phase** The agent operates as a physician in a virtual clinic, replacing static Q&A with active role-play. Starting with incomplete information, it must lead a multi-turn dialogue with a simulated patient and autonomously deploy diagnostic tools. This setup rigorously evaluates long-horizon reasoning and active information gathering strategies.
