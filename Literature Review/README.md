@@ -1,8 +1,3 @@
-
-
----
-
-```markdown
 # AI Agent Evaluation Frameworks: A Comparative Survey
 
 This repository provides a concise overview and visualization of evaluation methodologies from three significant papers in the field of AI Agents. The focus is on understanding **how** these agents are evaluated across different domains: Clinical Simulation, Tool Utilization, and Data Science.
