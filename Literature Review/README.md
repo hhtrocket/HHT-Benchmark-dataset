@@ -192,7 +192,7 @@ graph LR
 
 ---
 
-*Diagrams generated using [Mermaid.js](https://mermaid.js.org).*
+
 
 ```
 
