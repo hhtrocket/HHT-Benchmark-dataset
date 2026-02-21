@@ -1,4 +1,4 @@
-## 7. MEDPI: Medical Interactive Agent Evaluation
+## 6. MEDPI: Medical Interactive Agent Evaluation
 
 **Domain**: Medical Dialogue Simulation and Clinical Evaluation
 
