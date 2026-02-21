@@ -49,3 +49,10 @@ graph LR
     Score --> Metrics
     Score --> Report
 ```
+
+7. MedChain: Continuous Clinical Decision-Making Agent Evaluation
+
+Domain: Clinical Decision-Making and Continuous Interactive Evaluation
+Dynamic Interaction Testing: A local model acts as a standardized patient and the target agent acts as a doctor. They engage in multi-turn dialogues to assess the agent ability to dynamically gather information and provide personalized care.
+
+Continuous Execution and Hybrid Scoring: Agents sequentially complete five tasks including triage, history-taking, examination, diagnosis and treatment. The output of one stage serves as the input for the next to test error propagation. Scoring uses hybrid metrics where Intersection over Union evaluates the triage and treatment stages. Meanwhile a large language model judge performs text matching and comprehensive scoring for the examination and diagnosis stages based on clinical standards.
