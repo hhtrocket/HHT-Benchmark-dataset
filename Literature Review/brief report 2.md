@@ -18,10 +18,10 @@ graph LR
     classDef report fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,rx:10,ry:10;
 
     subgraph Phase1 [Phase 1 Setup and Simulation]
-        Task[1. Task Matrix]:::input
-        Data[2. Patient Packets]:::input
-        SimUser[3. AI Patient Agent]:::phase1
-        Agent[4. Target Doctor Agent]:::phase1
+        Task["1. Task<br/>Matrix"]:::input
+        Data["2. Patient<br/>Packets"]:::input
+        SimUser["3. AI Patient<br/>Agent"]:::phase1
+        Agent["4. Target Doctor<br/>Agent"]:::phase1
         
         Task --> SimUser
         Data --> SimUser
@@ -29,11 +29,11 @@ graph LR
     end
 
     subgraph Phase2 [Phase 2 Multidimensional Evaluation]
-        Trace[5. Conversation Trajectory]:::input
-        Rubric[6. Evaluation Framework]:::input
-        Judge[7. AI Judge Committee]:::phase2
-        Extract[8. Evidence Extraction]:::phase2
-        Score[9. Dimension Scoring]:::phase2
+        Trace["5. Conversation<br/>Trajectory"]:::input
+        Rubric["6. Evaluation<br/>Framework"]:::input
+        Judge["7. AI Judge<br/>Committee"]:::phase2
+        Extract["8. Evidence<br/>Extraction"]:::phase2
+        Score["9. Dimension<br/>Scoring"]:::phase2
         
         Agent --> Trace
         SimUser --> Trace
@@ -43,8 +43,8 @@ graph LR
         Extract --> Score
     end
 
-    Metrics[10. Competency Metrics]:::report
-    Report[11. Evaluation Report]:::report
+    Metrics["10. Competency<br/>Metrics"]:::report
+    Report["11. Evaluation<br/>Report"]:::report
 
     Score --> Metrics
     Score --> Report
