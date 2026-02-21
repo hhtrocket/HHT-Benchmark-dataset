@@ -1,4 +1,4 @@
-## 4. MAJ-EVAL: Multi-Agent-as-Judge
+## 6. MAJ-EVAL: Multi-Agent-as-Judge
 
 **Domain**: General / Multi-dimensional Human Alignment
 
@@ -28,6 +28,7 @@ graph LR
     classDef report fill:#e0e0e0,stroke:#333,stroke-width:2px,stroke-dasharray: 5 5;
 
     %% === Phase 1: Persona Construction ===
+
     subgraph Phase1 ["Phase 1: Persona Construction"]
         Docs["1. Source Documents<br/>Domain Papers / Rubrics"]:::input
         Miner["2. Persona Miner<br/>Dimension Extraction"]:::phase1
