@@ -195,4 +195,59 @@ graph LR
 ```
 
 ```
+## 4. Survey on Evaluation of LLM-based Agents
 
+**Domain**: General Evaluation Methodologies and Frameworks
+
+**Capability and Scenario Benchmarking Phase**
+Evaluating agents requires building benchmarks from two dimensions. The first evaluates capabilities including multi-step planning, tool use, self-reflection, and memory management. The second evaluates application-specific and general scenarios by placing agents in simulated environments to test performance in real-world tasks.
+
+**Multi-level Granular Evaluation Phase**
+Evaluation frameworks analyze the complete interaction trajectory to diagnose execution quality. Evaluations occur at these levels:
+
+1. **Stepwise Evaluation**: Examines individual actions or parameter selections for root cause analysis.
+2. **Trajectory Assessment**: Compares the executed sequence of steps against the optimal path to evaluate decision logic and tool invocation order.
+3. **Final Response Evaluation**: Uses model judges or objective metrics to assess output quality and consistency.
+4. **Interactive Environment Testing**: Monitors agent responses to changing states through a simulation framework.
+
+### Workflow Visualization
+
+```mermaid
+graph LR
+    classDef input fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,rx:5,ry:5;
+    classDef phase1 fill:#e3f2fd,stroke:#1565c0,stroke-width:2px;
+    classDef phase2 fill:#fce4ec,stroke:#c2185b,stroke-width:2px;
+    classDef actor fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px;
+    classDef score fill:#ffcdd2,stroke:#c62828,stroke-width:2px,rx:50,ry:50;
+
+    subgraph Phase1 ["Phase 1: Task and Environment Setup"]
+        Tasks["1. Benchmark Tasks"]:::input
+        Agent["2. Target Agent"]:::actor
+        Env["3. Dynamic Environment"]:::phase1
+
+        Tasks --> Agent
+        Agent <--> Env
+    end
+
+    subgraph Phase2 ["Phase 2: Granular Evaluation"]
+        Trace["4. Execution Trajectory"]:::input
+        StepEval["5. Stepwise Eval"]:::phase2
+        TrajEval["6. Trajectory Eval"]:::phase2
+        FinalEval["7. Final Response Eval"]:::phase2
+
+        Env --> Trace
+        Trace --> StepEval
+        Trace --> TrajEval
+        Trace --> FinalEval
+    end
+
+    M1["8. Capability Scores"]:::score
+    M2["9. Efficiency Metrics"]:::score
+
+    StepEval --> M1
+    TrajEval --> M1
+    FinalEval --> M1
+
+    StepEval --> M2
+    TrajEval --> M2
+    FinalEval --> M2
