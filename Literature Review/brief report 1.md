@@ -265,7 +265,7 @@ graph LR
 
 ```
 
-```
+---
 ## 5. MAJ-EVAL: Multi-Agent-as-Judge
 
 **Domain**: General / Multi-dimensional Human Alignment
