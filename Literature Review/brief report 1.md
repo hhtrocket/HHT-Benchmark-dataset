@@ -189,12 +189,6 @@ graph LR
 ```
 
 ---
-
-
-
-```
-
-```
 ## 4. Survey on Evaluation of LLM-based Agents
 
 **Domain**: General Evaluation Methodologies and Frameworks
