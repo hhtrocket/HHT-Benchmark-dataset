@@ -208,40 +208,32 @@ Evaluation frameworks analyze the complete interaction trajectory to diagnose ex
 
 ```mermaid
 graph LR
-    classDef input fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,rx:5,ry:5;
+    %% Style Definitions
     classDef phase1 fill:#e3f2fd,stroke:#1565c0,stroke-width:2px;
     classDef phase2 fill:#fce4ec,stroke:#c2185b,stroke-width:2px;
-    classDef actor fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px;
-    classDef score fill:#ffcdd2,stroke:#c62828,stroke-width:2px,rx:50,ry:50;
+    classDef data fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,rx:5,ry:5;
+    classDef metric fill:#ffcdd2,stroke:#c62828,stroke-width:2px,rx:50,ry:50;
 
-    subgraph Phase1 ["Phase 1: Task and Environment Setup"]
-        Tasks["1. Benchmark Tasks"]:::input
-        Agent["2. Target Agent"]:::actor
-        Env["3. Dynamic Environment"]:::phase1
-
-        Tasks --> Agent
-        Agent <--> Env
+    %% === Phase 1: Task Execution ===
+    subgraph Phase1 ["Phase 1: Task Execution"]
+        Env["1. Benchmark & Environment"]:::data
+        Agent["2. Target Agent"]:::phase1
+        Traj["3. Execution Trajectory"]:::data
+        
+        Env <-->|Interacts| Agent
+        Agent -->|Produces| Traj
     end
 
+    %% === Phase 2: Granular Evaluation ===
     subgraph Phase2 ["Phase 2: Granular Evaluation"]
-        Trace["4. Execution Trajectory"]:::input
-        StepEval["5. Stepwise Eval"]:::phase2
-        TrajEval["6. Trajectory Eval"]:::phase2
-        FinalEval["7. Final Response Eval"]:::phase2
-
-        Env --> Trace
-        Trace --> StepEval
-        Trace --> TrajEval
-        Trace --> FinalEval
+        Step["4. Stepwise Eval"]:::phase2
+        Path["5. Trajectory Eval"]:::phase2
+        Final["6. Final Response Eval"]:::phase2
+        
+        Traj --> Step & Path & Final
     end
 
-    M1["8. Capability Scores"]:::score
-    M2["9. Efficiency Metrics"]:::score
+    %% === Output ===
+    Scores(("7. Final Metrics<br/>(Capability & Efficiency)")):::metric
 
-    StepEval --> M1
-    TrajEval --> M1
-    FinalEval --> M1
-
-    StepEval --> M2
-    TrajEval --> M2
-    FinalEval --> M2
+    Step & Path & Final -->|Aggregates into| Scores
