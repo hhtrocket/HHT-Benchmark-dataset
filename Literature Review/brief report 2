@@ -32,7 +32,7 @@ graph LR
         Docs["1. Source Documents<br/>Domain Papers / Rubrics"]:::input
         Miner["2. Persona Miner<br/>Dimension Extraction"]:::phase1
         Agents["3. Stakeholder Agents<br/>Specialized Personas"]:::actor
-        
+
         Docs --> Miner --> Agents
     end
 
@@ -41,7 +41,7 @@ graph LR
         Target["4. Target Response<br/>Agent Output"]:::input
         Debate{"5. Multi-turn Debate<br/>Reflection Cycle"}:::phase2
         Aggregator["6. Impartial Aggregator<br/>Consensus Synthesis"]:::phase2
-        
+
         Target --> Debate
         Agents <-->|Cross-Feedback| Debate
         Debate --> Aggregator
@@ -53,5 +53,4 @@ graph LR
 
     Aggregator --> Metric1
     Aggregator --> Report
-
 ```
