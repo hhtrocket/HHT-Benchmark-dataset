@@ -27,7 +27,7 @@ graph LR
     classDef score fill:#ffcdd2,stroke:#c62828,stroke-width:2px,rx:50,ry:50;
     classDef report fill:#e0e0e0,stroke:#333,stroke-width:2px,stroke-dasharray: 5 5;
 
-    %% === Phase 1:Persona Construction  ===
+    %% === Phase 1:Persona Construction===
     subgraph Phase1 ["Phase 1: Persona Construction"]
         Docs["1. Source Documents<br/>Domain Papers / Rubrics"]:::input
         Miner["2. Persona Miner<br/>Dimension Extraction"]:::phase1
