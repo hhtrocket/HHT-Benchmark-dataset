@@ -50,9 +50,57 @@ graph LR
     Score --> Report
 ```
 
-7. MedChain: Continuous Clinical Decision-Making Agent Evaluation
+---
 
-Domain: Clinical Decision-Making and Continuous Interactive Evaluation
-Dynamic Interaction Testing: A local model acts as a standardized patient and the target agent acts as a doctor. They engage in multi-turn dialogues to assess the agent ability to dynamically gather information and provide personalized care.
+## 7. MedChain: Continuous Clinical Decision-Making Agent Evaluation
 
-Continuous Execution and Hybrid Scoring: Agents sequentially complete five tasks including triage, history-taking, examination, diagnosis and treatment. The output of one stage serves as the input for the next to test error propagation. Scoring uses hybrid metrics where Intersection over Union evaluates the triage and treatment stages. Meanwhile a large language model judge performs text matching and comprehensive scoring for the examination and diagnosis stages based on clinical standards.
+**Domain**: Clinical Decision-Making and Continuous Interactive Evaluation
+
+**Dynamic Interaction Testing**
+A local model acts as a standardized patient and the target agent acts as a doctor. They engage in multi-turn dialogues to assess the agent's ability to dynamically gather information and provide personalized care.
+
+**Continuous Execution and Hybrid Scoring**
+Agents sequentially complete five tasks including triage, history-taking, examination, diagnosis, and treatment. The output of one stage serves as the input for the next to test error propagation. Scoring uses hybrid metrics where Intersection over Union evaluates the triage and treatment stages, while a large language model judge performs text matching and comprehensive scoring for the examination and diagnosis stages based on clinical standards.
+
+```mermaid
+graph LR
+    classDef phase1 fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,rx:5,ry:5;
+    classDef phase2 fill:#fce4ec,stroke:#c2185b,stroke-width:2px,rx:5,ry:5;
+    classDef input fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,rx:5,ry:5;
+    classDef report fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,rx:10,ry:10;
+
+    subgraph Phase1 [Phase 1 Setup and Simulation]
+        EHR["1. EHR<br/>Cases"]:::input
+        SimUser["2. AI Patient<br/>Agent"]:::phase1
+        Agent["3. Target Doctor<br/>Agent"]:::phase1
+        Interaction["4. Dynamic<br/>Consultation"]:::phase1
+        
+        EHR --> SimUser
+        SimUser <--> Interaction
+        Agent <--> Interaction
+    end
+
+    subgraph Phase2 [Phase 2 Sequential Evaluation]
+        Stages["5. Five Sequential<br/>Tasks"]:::input
+        Output["6. Task<br/>Outputs"]:::phase2
+        RuleEval["7. IoU and<br/>Accuracy"]:::phase2
+        LLMEval["8. LLM Judge<br/>Scoring"]:::phase2
+        ErrorCheck["9. Error Cascade<br/>Tracking"]:::phase2
+        
+        Interaction --> Stages
+        Stages --> Output
+        Output --> RuleEval
+        Output --> LLMEval
+        Output --> ErrorCheck
+    end
+
+    Metrics["10. Final<br/>Metrics"]:::report
+    Report["11. Comprehensive<br/>Report"]:::report
+
+    RuleEval --> Metrics
+    LLMEval --> Metrics
+    ErrorCheck --> Metrics
+    Metrics --> Report
+```
+
+---
