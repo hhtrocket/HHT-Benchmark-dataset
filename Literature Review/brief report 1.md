@@ -209,31 +209,54 @@ Evaluation frameworks analyze the complete interaction trajectory to diagnose ex
 ```mermaid
 graph LR
     %% Style Definitions
-    classDef phase1 fill:#e3f2fd,stroke:#1565c0,stroke-width:2px;
-    classDef phase2 fill:#fce4ec,stroke:#c2185b,stroke-width:2px;
-    classDef data fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,rx:5,ry:5;
-    classDef metric fill:#ffcdd2,stroke:#c62828,stroke-width:2px,rx:50,ry:50;
+    classDef phase1 fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,rx:5,ry:5;
+    classDef phase2 fill:#fce4ec,stroke:#c2185b,stroke-width:2px,rx:5,ry:5;
+    classDef input fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,rx:5,ry:5;
+    classDef report fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,rx:10,ry:10;
 
-    %% === Phase 1: Task Execution ===
-    subgraph Phase1 ["Phase 1: Task Execution"]
-        Env["1. Benchmark & Environment"]:::data
-        Agent["2. Target Agent"]:::phase1
-        Traj["3. Execution Trajectory"]:::data
+    %% === Phase 1: Setup and Environment ===
+    subgraph Phase1 [Phase 1: Setup and Environment]
+        Cap[1. Agent Capabilities]:::input
+        Agent[2. Target Agent]:::phase1
+        Bench[3. Benchmark Tasks]:::input
+        Env[4. Simulated Environment]:::phase1
         
-        Env <-->|Interacts| Agent
-        Agent -->|Produces| Traj
+        Cap --> Agent
+        Bench --> Env
+        Agent <-->|Interactive Execution| Env
     end
 
     %% === Phase 2: Granular Evaluation ===
-    subgraph Phase2 ["Phase 2: Granular Evaluation"]
-        Step["4. Stepwise Eval"]:::phase2
-        Path["5. Trajectory Eval"]:::phase2
-        Final["6. Final Response Eval"]:::phase2
+    subgraph Phase2 [Phase 2: Granular Evaluation]
+        Trace[5. Execution Trajectory]:::input
+        Step[6. Stepwise Assessment]:::phase2
+        Traj[7. Trajectory Assessment]:::phase2
+        Final[8. Final Response Eval]:::phase2
+        Cost[9. Cost & Efficiency]:::phase2
+        Safe[10. Safety & Compliance]:::phase2
+        Judge[11. LLM-as-a-Judge]:::phase1
         
-        Traj --> Step & Path & Final
+        %% Diverging flow from Trace
+        Trace --> Step
+        Trace --> Traj
+        Trace --> Final
+        Trace --> Cost
+        Trace --> Safe
+        
+        %% Judge inputs
+        Judge -.->|Scores| Step
+        Judge -.->|Scores| Final
     end
 
-    %% === Output ===
-    Scores(("7. Final Metrics<br/>(Capability & Efficiency)")):::metric
-
-    Step & Path & Final -->|Aggregates into| Scores
+    %% === Cross-Phase Connections ===
+    Env -->|Generates| Trace
+    
+    %% === Output Section ===
+    Report[12. Comprehensive Report]:::report
+    
+    %% Converging flow to Report
+    Step --> Report
+    Traj --> Report
+    Final --> Report
+    Cost --> Report
+    Safe --> Report
