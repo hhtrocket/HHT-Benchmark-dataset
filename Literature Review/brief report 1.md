@@ -193,7 +193,7 @@ graph LR
 
 **Domain**: General Evaluation Methodologies and Frameworks
 
-link:https://arxiv.org/abs/2503.16416
+link: https://arxiv.org/abs/2503.16416
 
 **Capability and Scenario Benchmarking Phase**
 Evaluating agents requires building benchmarks from two dimensions. The first evaluates capabilities including multi-step planning, tool use, self-reflection, and memory management. The second evaluates application-specific and general scenarios by placing agents in simulated environments to test performance in real-world tasks.
