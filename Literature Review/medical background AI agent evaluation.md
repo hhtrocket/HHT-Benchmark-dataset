@@ -80,6 +80,7 @@ graph TD
     classDef report fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,rx:10,ry:10;
 
     subgraph P1 [ Phase 1: Agent Construction & Memory Loop ]
+
         direction TB
         N1["1. Prompt Engineering<br/>for Chain of Thought"]:::phase1
         N2["2. Medical API &<br/>Calculation Tools Integration"]:::phase1
@@ -90,6 +91,7 @@ graph TD
     end
 
     subgraph P2 [ Phase 2: Clinical Benchmark & Execution ]
+
         direction TB
         N4["4. 300 New Complex<br/>Clinical Tasks"]:::input
         N5["5. Agent-EHR<br/>Environment Interaction"]:::phase2
@@ -98,6 +100,7 @@ graph TD
     end
 
     subgraph P3 [ Phase 3: Custom Code-Level Verification ]
+
         direction TB
         N6["6. Inject Custom<br/>Evaluation Functions"]:::phase3
         N7["7. Verify Clinical<br/>Timing & Dosing Logic"]:::phase3
