@@ -233,44 +233,46 @@ This study establishes a comprehensive evaluation system covering data analysis,
 The evaluation framework combines task completion rates with normalized performance scores to calculate a comprehensive final grade. Beyond just checking final accuracy, the system strictly monitors execution time and resource consumption costs. Furthermore, the study uses various ablation experiments to independently verify the effectiveness of core modules—such as code execution, iterative graph refinement, and programmable node generation—in automated error correction and long-context management.
 
 ```mermaid
-graph TD
+graph LR
     classDef phase1 fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,rx:5,ry:5;
     classDef phase2 fill:#fce4ec,stroke:#c2185b,stroke-width:2px,rx:5,ry:5;
+    classDef phase3 fill:#fff3e0,stroke:#e65100,stroke-width:2px,rx:5,ry:5;
     classDef input fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,rx:5,ry:5;
     classDef report fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,rx:10,ry:10;
 
-    subgraph P1 [Phase 1: Dynamic Graph Construction and Execution]
+    subgraph P1 [Phase 1: Evaluation Setup and Execution]
         direction LR
-        N1["1. Project Requirements<br/>and Datasets"]:::input
-        N2["2. Task Graph<br/>Generation"]:::phase1
-        N3["3. Action Graph<br/>Generation"]:::phase1
-        N4["4. Programmable Node<br/>Integration"]:::phase1
-        N5["5. Code Execution<br/>and Reflection"]:::phase1
-        N6["6. Iterative Graph<br/>Refinement"]:::phase1
+        N1["1. Multi-Domain Benchmarks<br/>(构建多领域测试基准)"]:::input
+        N2["2. Baselines & LLMs Setup<br/>(对照组与大模型配置)"]:::phase1
+        N3["3. Trajectory Execution<br/>(智能体执行轨迹收集)"]:::phase1
         
-        N1 --> N2
+        N1 --> N3
         N2 --> N3
-        N3 --> N4
-        N4 --> N5
-        N5 --> N6
     end
 
-    subgraph P2 [Phase 2: Multidimensional Evaluation and Metrics]
+    subgraph P2 [Phase 2: Multidimensional Quantitative Metrics]
         direction LR
-        N7["7. Completion Rate<br/>Calculation (CR)"]:::phase2
-        N8["8. Normalized Performance<br/>Scoring (NPS)"]:::phase2
-        N9["9. Efficiency Analysis<br/>Cost and Latency"]:::phase2
-        N10["10. Comprehensive Score<br/>Evaluation Report"]:::report
+        N4["4. Task Completion Rate<br/>(CR: 任务完成率计算)"]:::phase2
+        N5["5. Normalized Performance<br/>(NPS: 归一化性能打分)"]:::phase2
+        N6["6. Comprehensive Score<br/>(CS: 综合加权评分)"]:::phase2
         
-        N7 --> N10
-        N8 --> N10
+        N3 --> N4
+        N3 --> N5
+        N4 & N5 --> N6
+    end
+
+    subgraph P3 [Phase 3: In-depth Analysis and Reporting]
+        direction LR
+        N7["7. Efficiency Metrics<br/>(时间延迟与资金成本测算)"]:::phase3
+        N8["8. Core Module Ablation<br/>(核心模块消融实验验证)"]:::phase3
+        N9["9. Advanced LLM Comparison<br/>(跨推理大模型对比测试)"]:::phase3
+        N10["10. Final Evaluation Report<br/>(输出最终综合评估报告)"]:::report
+        
+        N6 --> N7
+        N7 --> N8
+        N8 --> N9
         N9 --> N10
     end
-
-    %% Minimal Cross-Phase Connections
-    N6 --> N7
-    N6 --> N8
-    N6 --> N9
 ```
 
 ---
