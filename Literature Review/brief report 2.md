@@ -165,3 +165,62 @@ graph LR
 ```
 
 ---
+## 9. MedAgentsBench: Complex Medical Reasoning Agent Evaluation
+**Domain**: Complex Medical Reasoning and Multi-dimensional Performance Evaluation
+
+Link : https://arxiv.org/abs/2503.07459
+
+**Task Setup and Agent Execution**
+MedAgentsBench combines seven medical datasets and removes simple questions to focus on multi-step clinical reasoning and treatment planning. The system tests target models using methods like zero-shot prompting, chain-of-thought, and multi-agent debate. It records the complete step-by-step process the models use to handle complex queries.
+
+**Performance Trade-off Evaluation**
+Instead of only measuring accuracy, the evaluation analyzes the trade-offs between reasoning accuracy, financial cost, and time consumption. The system outputs a report to help users select the most cost-effective AI agents for real medical applications.
+
+```mermaid
+graph LR
+    classDef phase1 fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,rx:5,ry:5;
+    classDef phase2 fill:#fce4ec,stroke:#c2185b,stroke-width:2px,rx:5,ry:5;
+    classDef phase3 fill:#fff3e0,stroke:#e65100,stroke-width:2px,rx:5,ry:5;
+    classDef input fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,rx:5,ry:5;
+    classDef report fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,rx:10,ry:10;
+
+    subgraph Phase1 [Phase 1 Task Construction]
+        Data["1. Medical<br/>Datasets"]:::input
+        Filter["2. Question<br/>Filtering"]:::phase1
+        Bench["3. Complex<br/>Benchmark"]:::phase1
+        
+        Data --> Filter
+        Filter --> Bench
+    end
+
+    subgraph Phase2 [Phase 2 Agent Execution]
+        Model["4. Target<br/>Model"]:::input
+        Single["5. Single Agent<br/>Reasoning"]:::phase2
+        Multi["6. Multi Agent<br/>Frameworks"]:::phase2
+        Engine["7. Execution<br/>Engine"]:::phase2
+        Trace["8. Output<br/>Trajectories"]:::phase2
+        
+        Bench --> Model
+        Model --> Single
+        Model --> Multi
+        Single --> Engine
+        Multi --> Engine
+        Engine --> Trace
+    end
+
+    subgraph Phase3 [Phase 3 Performance Evaluation]
+        Acc["9. Accuracy<br/>Metric"]:::phase3
+        Cost["10. Financial<br/>Cost"]:::phase3
+        Time["11. Inference<br/>Latency"]:::phase3
+        Eval["12. Final<br/>Report"]:::report
+        
+        Trace --> Acc
+        Trace --> Cost
+        Trace --> Time
+        Acc --> Eval
+        Cost --> Eval
+        Time --> Eval
+    end
+```
+
+---
