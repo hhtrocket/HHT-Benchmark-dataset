@@ -6,6 +6,8 @@ This repository provides a concise overview and visualization of evaluation meth
 
 ## 1. AgentClinic: Multimodal Clinical Simulation
 > **Domain:** Healthcare / Interactive Diagnosis
+> 
+Link: https://arxiv.org/pdf/2405.07960
 
 **Dynamic Interaction Phase** The agent operates as a physician in a virtual clinic, replacing static Q&A with active role-play. Starting with incomplete information, it must lead a multi-turn dialogue with a simulated patient and autonomously deploy diagnostic tools. This setup rigorously evaluates long-horizon reasoning and active information gathering strategies.
 
