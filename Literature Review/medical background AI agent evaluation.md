@@ -186,7 +186,7 @@ graph LR
     classDef input fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,rx:5,ry:5;
     classDef report fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,rx:10,ry:10;
 
-    subgraph P1 [Phase 1: Environment and Interaction]
+    subgraph P1 [Phase 1: Environment ]
         direction LR
         N1["1. Real World Datasets<br/>Text and Vision"]:::input
         N2["2. Multimodal<br/>Perception"]:::phase1
