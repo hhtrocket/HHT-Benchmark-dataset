@@ -174,9 +174,11 @@ graph TD
 Link: https://arxiv.org/pdf/2601.13591
 
 **Multimodal Interaction & Task Execution**
+
 The system creates a multi-round query environment based on real-world datasets. Agents receive multimodal inputs (both text and visuals), simulating the iterative process of an actual data science project. They are required to step-by-step generate reasoning logic, executable code, and final results.
 
 **Multi-Dimensional Judge Evaluation**
+
 The evaluation framework employs an LLM-as-a-judge to score the agent’s entire output trajectory across three dimensions: reasoning, code quality, and final outcomes. By moving beyond simple "single-answer" comparisons, this mechanism fully quantifies the agent's comprehensive performance when solving open-ended data science problems.
 
 ```mermaid
@@ -227,9 +229,11 @@ graph LR
 Link：https://aclanthology.org/2025.findings-acl.1016.pdf
 
 **Multi-Task Benchmarking**
+
 This study establishes a comprehensive evaluation system covering data analysis, machine learning, mathematical reasoning, and open-ended tasks. Testing is conducted on real-world datasets and multiple standardized benchmarks, such as Kaggle competition data and the MATH dataset. The process requires the agent to independently manage the entire workflow—from data preprocessing and feature engineering to model training and evaluation—to test its integrated capability in handling multi-step, complex data science tasks.
 
 **Multi-Dimensional Quantitative Evaluation**
+
 The evaluation framework combines task completion rates with normalized performance scores to calculate a comprehensive final grade. Beyond just checking final accuracy, the system strictly monitors execution time and resource consumption costs. Furthermore, the study uses various ablation experiments to independently verify the effectiveness of core modules—such as code execution, iterative graph refinement, and programmable node generation—in automated error correction and long-context management.
 
 ```mermaid
@@ -282,9 +286,11 @@ graph LR
 Link：https://arxiv.org/pdf/2509.02473
 
 **Heterogeneous Data Environment & Multi-Source Querying**
+
 This study establishes a multi-source data lake testing environment containing both structured and unstructured data. Agents receive complex analytical instructions and must independently coordinate LLMs and external tools. They perform cross-modal retrieval and joint queries across text, images, and relational databases to generate a complete data analysis trajectory.
 
 **Multi-Granularity Verification & Performance Evaluation**
+
 The system performs rigorous scoring by comparing the agent's intermediate query steps against its final outputs. The evaluation framework independently breaks down and verifies the accuracy of tool calls, the logical coherence of cross-modal data integration, and the correctness rate of the final data solution. This benchmark effectively quantifies the reasoning bottlenecks of existing models when processing heterogeneous data.
 
 ```mermaid
