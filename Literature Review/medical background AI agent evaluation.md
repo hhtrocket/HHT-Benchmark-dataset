@@ -119,3 +119,48 @@ graph TD
 ```
 
 ---
+## 13. RadOnc-GPT: Clinical Outcomes Labeling Agent
+**domain: Clinical Outcomes Labeling**
+
+**Two-Level Task Evaluation**
+This study uses a two-level strategy to evaluate the medical AI agent. The first level focuses on "structured data extraction," testing how accurately the agent retrieves basic patient information and radiotherapy plans from the database. These results are checked directly against the source data. The second level involves "complex clinical outcome labeling." Here, the agent must analyze both structured records and unstructured clinical notes to independently identify conditions like radiation necrosis or cancer recurrence.
+
+**Expert Review & Data Auditing**
+When the agent’s results in the second level differ from existing human-made labels in the registry, independent doctors are brought in to judge the discrepancy. These experts categorize each difference as either a "real model error" or a "baseline error" in the original data. This evaluation process does more than just measure the agent's performance; it also acts as a "reverse audit," helping to identify and correct many human labeling errors or omissions in existing medical databases.
+### Workflow Visualization
+
+```mermaid
+graph TD
+    classDef phase1 fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,rx:5,ry:5;
+    classDef phase2 fill:#fce4ec,stroke:#c2185b,stroke-width:2px,rx:5,ry:5;
+    classDef input fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,rx:5,ry:5;
+    classDef report fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,rx:10,ry:10;
+
+    subgraph P1 ["Phase 1: Two Tier Evaluation"]
+        direction TB
+        N1["1. Database and EHR Input"]:::input
+        N2["2. Tier 1 Structured Extraction"]:::phase1
+        N3["3. Tier 2 Complex Labeling"]:::phase1
+        
+        N1 --> N2
+        N2 --> N3
+    end
+
+    subgraph P2 ["Phase 2: Adjudication and Audit"]
+        direction TB
+        N4["4. Compare with Ground Truth"]:::phase2
+        N5["5. Independent Expert Adjudication"]:::phase2
+        N6["6. Categorize Model Errors"]:::phase2
+        N7["7. Categorize Registry Errors"]:::phase2
+        N8["8. Final Accuracy Metrics"]:::report
+        
+        N4 --> N5
+        N5 --> N6
+        N5 --> N7
+        N6 & N7 --> N8
+    end
+
+    N3 --> N4
+```
+
+---
