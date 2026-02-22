@@ -239,35 +239,38 @@ graph TD
     classDef input fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,rx:5,ry:5;
     classDef report fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,rx:10,ry:10;
 
-    subgraph P1 [ Phase 1: Dynamic Graph Construction and Execution ]
+    subgraph P1 [Phase 1: Dynamic Graph Construction and Execution]
         direction LR
-        N1["1. Diverse Datasets and Benchmarks"]:::input
-        N2["2. Hierarchical Task Graph Decomposition"]:::phase1
-        N3["3. Granular Action Graph Execution"]:::phase1
-        N4["4. Programmable Node Integration"]:::phase1
-        N5["5. Iterative Error Refinement"]:::phase1
+        N1["1. Project Requirements<br/>and Datasets"]:::input
+        N2["2. Task Graph<br/>Generation"]:::phase1
+        N3["3. Action Graph<br/>Generation"]:::phase1
+        N4["4. Programmable Node<br/>Integration"]:::phase1
+        N5["5. Code Execution<br/>and Reflection"]:::phase1
+        N6["6. Iterative Graph<br/>Refinement"]:::phase1
         
         N1 --> N2
         N2 --> N3
         N3 --> N4
         N4 --> N5
+        N5 --> N6
     end
 
-    subgraph P2 [ Phase 2: Multidimensional Evaluation ]
+    subgraph P2 [Phase 2: Multidimensional Evaluation and Metrics]
         direction LR
-        N6["6. Completion Rate Calculation"]:::phase2
-        N7["7. Normalized Performance Scoring"]:::phase2
-        N8["8. Latency and Cost Assessment"]:::phase2
-        N9["9. Core Module Ablation Studies"]:::phase2
-        N10["10. Comprehensive Evaluation Report"]:::report
+        N7["7. Completion Rate<br/>Calculation (CR)"]:::phase2
+        N8["8. Normalized Performance<br/>Scoring (NPS)"]:::phase2
+        N9["9. Efficiency Analysis<br/>Cost and Latency"]:::phase2
+        N10["10. Comprehensive Score<br/>Evaluation Report"]:::report
         
-        N6 --> N7
-        N7 --> N8
-        N8 --> N9
+        N7 --> N10
+        N8 --> N10
         N9 --> N10
     end
 
-    N5 --> N6
+    %% Minimal Cross-Phase Connections
+    N6 --> N7
+    N6 --> N8
+    N6 --> N9
 ```
 
 ---
