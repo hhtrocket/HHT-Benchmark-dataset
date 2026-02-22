@@ -20,7 +20,7 @@ graph TD
     classDef input fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,rx:5,ry:5;
     classDef report fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,rx:10,ry:10;
 
-    subgraph Phase1 [Phase 1: Data Preparation and Benchmark]
+    subgraph Phase1 [Phase 1: Data Preparation]
         Data["1. Clinical Data<br/>EHR and Summaries"]:::input
         Rubric["2. PDSQI 9<br/>Evaluation Rubric"]:::input
         Benchmark["3. Human Expert<br/>Benchmark"]:::phase1
