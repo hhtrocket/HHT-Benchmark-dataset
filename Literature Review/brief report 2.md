@@ -224,3 +224,60 @@ graph LR
 ```
 
 ---
+## 10. Systematic Evaluation of LLM-Based Virtual Patient Systems for History-Taking
+**Domain**: Medical Education and Virtual Patient History-Taking Evaluation 
+
+Link: https://medinform.jmir.org/2026/1/e79039
+**Evaluation Process and Methodology**
+The review analyzes a multidimensional framework for assessing virtual patient agents across clinical accuracy, communication quality, stability, and educational impact. Researchers typically involve medical students or experts to engage in dialogue with agents, collecting data on history-taking and diagnostic reasoning performance. The evaluation process integrates quantitative metrics with qualitative feedback, comparing LLMs against human physicians or varying prompt strategies to verify reliability in clinical simulations.
+
+**Key Metrics and Standards**
+Core assessment metrics include Top-k accuracy for diagnostic capability, hallucination rates for factual integrity, and information coverage for thoroughness in gathering patient history. To standardize evaluations, the study proposes specific thresholds, such as requiring Top-1 accuracy above 80% and keeping hallucination rates below 5%. Additionally, usability scales like the System Usability Scale and Chatbot Usability Questionnaire are employed to measure interaction quality and ensure the agent provides practical value in medical education.
+
+```mermaid
+graph LR
+    classDef phase1 fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,rx:5,ry:5;
+    classDef phase2 fill:#fce4ec,stroke:#c2185b,stroke-width:2px,rx:5,ry:5;
+    classDef phase3 fill:#fff3e0,stroke:#e65100,stroke-width:2px,rx:5,ry:5;
+    classDef input fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,rx:5,ry:5;
+    classDef report fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,rx:10,ry:10;
+
+    subgraph Phase1 [Phase 1 Literature and Task Simulation]
+        Lit["1. Literature<br/>Screening"]:::input
+        Task["2. History Taking<br/>Tasks"]:::phase1
+        Agent["3. Virtual Patient<br/>Agent"]:::phase1
+        Enhance["4. Knowledge Graph<br/>Tuning"]:::phase1
+        
+        Lit --> Task
+        Task --> Agent
+        Agent <--> Enhance
+    end
+
+    subgraph Phase2 [Phase 2 Multi Dimensional Evaluation]
+        Interact["5. Clinical<br/>Interaction"]:::input
+        Obj["6. Objective<br/>Accuracy"]:::phase2
+        Subj["7. Subjective<br/>Usability"]:::phase2
+        Halluc["8. Hallucination<br/>Rate"]:::phase2
+        
+        Agent --> Interact
+        Interact --> Obj
+        Interact --> Subj
+        Interact --> Halluc
+    end
+
+    subgraph Phase3 [Phase 3 Standardization and Reporting]
+        Agg["9. Data<br/>Aggregation"]:::phase3
+        Limit["10. Limitation<br/>Analysis"]:::phase3
+        Standard["11. Standardized<br/>Metrics"]:::phase3
+        Report["12. Final<br/>Review Report"]:::report
+        
+        Obj --> Agg
+        Subj --> Agg
+        Halluc --> Agg
+        Agg --> Limit
+        Limit --> Standard
+        Standard --> Report
+    end
+```
+
+---
