@@ -20,23 +20,23 @@ graph TD
     classDef input fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,rx:5,ry:5;
     classDef report fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,rx:10,ry:10;
 
-    subgraph Phase1 [Phase 1: Data Preparation & Benchmark]
-        Data["1. Clinical Data (EHR Notes & AI Summaries)"]:::input
-        Rubric["2. PDSQI-9 Evaluation Rubric"]:::input
-        Benchmark["3. Human Expert Benchmark"]:::phase1
+    subgraph Phase1 [Phase 1: Data Preparation and Benchmark]
+        Data["1. Clinical Data<br/>EHR and Summaries"]:::input
+        Rubric["2. PDSQI 9<br/>Evaluation Rubric"]:::input
+        Benchmark["3. Human Expert<br/>Benchmark"]:::phase1
         
         Data --> Benchmark
         Rubric --> Benchmark
     end
 
-    subgraph Phase2 [Phase 2: AI Evaluation & Validation]
-        Setup["4. Prompt Engineering & Setup"]:::phase2
-        Models["5. AI Models (GPT-o3 / DeepSeek / Mixtral)"]:::phase2
-        Outputs["6. LLM Outputs (Scores & Reasoning)"]:::phase2
-        Validation["7. ICC Reliability Validation"]:::phase2
-        Analysis["8. Error & Cost Analysis"]:::phase2
-        CrossTask["9. Cross-Task Validation (ProbSum)"]:::phase2
-        Report["10. Final Evaluation Report"]:::report
+    subgraph Phase2 [Phase 2: AI Evaluation and Validation]
+        Setup["4. Prompt Engineering<br/>and Setup"]:::phase2
+        Models["5. AI Models<br/>Single and Multi Agent"]:::phase2
+        Outputs["6. LLM Outputs<br/>Scores and Reasoning"]:::phase2
+        Validation["7. ICC Reliability<br/>Validation"]:::phase2
+        Analysis["8. Error and Cost<br/>Analysis"]:::phase2
+        CrossTask["9. Cross Task<br/>Validation"]:::phase2
+        Report["10. Final<br/>Evaluation Report"]:::report
         
         Setup --> Models
         Models --> Outputs
@@ -46,10 +46,9 @@ graph TD
         CrossTask --> Report
     end
 
-    %% Minimal Cross-Phase Connections
     Data --> Setup
     Rubric --> Setup
-    Benchmark --> Validation
+    Benchmark -.-> Validation
 ```
 
 ---
