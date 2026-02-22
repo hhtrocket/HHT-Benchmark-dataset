@@ -244,7 +244,7 @@ graph LR
     classDef input fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,rx:5,ry:5;
     classDef report fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,rx:10,ry:10;
 
-    subgraph P1 ["Evaluation Setup and Execution"]
+    subgraph Setup and Execution
         direction LR
         N1["1. Multi-Domain<br/>Benchmarks"]:::input
         N2["2. Baselines &<br/>LLMs Setup"]:::phase1
@@ -254,7 +254,7 @@ graph LR
         N2 --> N3
     end
 
-    subgraph P2 ["Multidimensional Quantitative Metrics"]
+    subgraph Multidimensional Metrics
         direction LR
         N4["4. Task Completion<br/>Rate (CR)"]:::phase2
         N5["5. Normalized Performance<br/>Score (NPS)"]:::phase2
@@ -265,7 +265,7 @@ graph LR
         N4 & N5 --> N6
     end
 
-    subgraph ["In-depth Analysis and Reporting"]
+    subgraph In-depth Analysis
         direction LR
         N7["7. Efficiency Metrics<br/>(Cost & Latency)"]:::phase3
         N8["8. Core Module<br/>Ablation"]:::phase3
