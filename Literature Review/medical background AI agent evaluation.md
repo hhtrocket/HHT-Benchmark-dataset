@@ -1,4 +1,4 @@
-##7. Medical LLM-as-a-Judge: Automated Clinical Summary Evaluation
+## 7. Medical LLM-as-a-Judge: Automated Clinical Summary Evaluation
 
 Domain: Clinical Summarization and Automated Evaluation
 
@@ -9,7 +9,9 @@ This study employs Large Language Models (LLMs) as judges to evaluate the qualit
 
 Multi-Agent Collaboration & Strategy Optimization
 The research further introduces a multi-agent discussion framework. Agents are assigned specific roles—such as "high-score" or "low-score" biased evaluators—to engage in cross-debates regarding summary quality. A coordinator then synthesizes these perspectives into a consensus score. Additionally, the study tests zero-shot, few-shot, and preference optimization strategies to identify the automated evaluation approach that most closely aligns with human cognitive standards.
+### Workflow Visualization
 
+```mermaid
 graph LR
     classDef phase1 fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,rx:5,ry:5;
     classDef phase2 fill:#fce4ec,stroke:#c2185b,stroke-width:2px,rx:5,ry:5;
