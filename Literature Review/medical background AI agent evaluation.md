@@ -14,39 +14,41 @@ The research further introduces a multi-agent discussion framework. Agents are a
 ### Workflow Visualization
 
 ```mermaid
-graph LR
+graph TD
     classDef phase1 fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,rx:5,ry:5;
     classDef phase2 fill:#fce4ec,stroke:#c2185b,stroke-width:2px,rx:5,ry:5;
     classDef input fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,rx:5,ry:5;
     classDef report fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,rx:10,ry:10;
 
-    subgraph Phase1 [Phase 1 Data and Benchmark Setup]
-        Data["1. EHR Notes &<br/>AI Summaries"]:::input
-        Rubric["2. PDSQI-9 Rubric"]:::input
-        HumanEval["3. Human Expert<br/>Benchmark"]:::phase1
+    subgraph Phase1 [Phase 1: Data Preparation and Benchmark]
+        Notes["1. Raw EHR Notes"]:::input
+        Summaries["2. AI-Generated Summaries"]:::input
+        Rubric["3. PDSQI-9 Rubric"]:::input
+        HumanEval["4. Human Expert Benchmark"]:::phase1
         
-        Data --> HumanEval
+        Notes & Summaries --> HumanEval
         Rubric --> HumanEval
     end
 
-    subgraph Phase2 [Phase 2 AI Judging and Evaluation]
-        Strategy["4. AI Judging Strategy<br/>(Single / Tuned / Multi-Agent)"]:::phase2
-        LLMScore["5. LLM Grading &<br/>Reasoning"]:::phase2
-        Validation["6. ICC Reliability<br/>Validation"]:::phase2
+    subgraph Phase2 [Phase 2: Multidimensional Judging and Validation]
+        Strategy["5. AI Judging Strategy<br/>(Single / Tuned / Multi-Agent)"]:::phase2
+        LLMScore["6. LLM Grading"]:::phase2
+        LLMReason["7. LLM Reasoning"]:::phase2
+        Validation["8. ICC Reliability Validation"]:::phase2
+        CrossTask["9. Cross-task Validation<br/>(ProbSum)"]:::phase2
+        Report["10. Automated Evaluation Report"]:::report
         
         Strategy --> LLMScore
+        Strategy --> LLMReason
         LLMScore --> Validation
+        Validation --> CrossTask
+        CrossTask --> Report
+        LLMReason --> Report
     end
 
-    subgraph Phase3 [Phase 3 Output]
-        Report["7. Automated Evaluation<br/>Report & Metrics"]:::report
-    end
-
-    %% 跨阶段连线
-    Data --> Strategy
-    Rubric --> Strategy
-    HumanEval --> Validation
-    Validation --> Report
+    %% Cross-phase connections
+    Notes & Summaries & Rubric --> Strategy
+    HumanEval -.->|As Gold Standard Benchmark| Validation
 ```
 
 ---
