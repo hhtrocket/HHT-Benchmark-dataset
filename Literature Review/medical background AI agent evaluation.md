@@ -120,13 +120,17 @@ graph TD
 
 ---
 ## 13. RadOnc-GPT: Clinical Outcomes Labeling Agent
-**domain: Clinical Outcomes Labeling**
+**Domain: Clinical Outcomes Labeling**
+
+Link ：https://arxiv.org/html/2509.25540v1
 
 **Two-Level Task Evaluation**
-This study uses a two-level strategy to evaluate the medical AI agent. The first level focuses on "structured data extraction," testing how accurately the agent retrieves basic patient information and radiotherapy plans from the database. These results are checked directly against the source data. The second level involves "complex clinical outcome labeling." Here, the agent must analyze both structured records and unstructured clinical notes to independently identify conditions like radiation necrosis or cancer recurrence.
+
+This study uses a two-level strategy to evaluate the medical AI agent. The first level focuses on structured data extraction,testing how accurately the agent retrieves basic patient information and radiotherapy plans from the database. These results are checked directly against the source data. The second level involves "complex clinical outcome labeling." Here, the agent must analyze both structured records and unstructured clinical notes to independently identify conditions like radiation necrosis or cancer recurrence.
 
 **Expert Review & Data Auditing**
-When the agent’s results in the second level differ from existing human-made labels in the registry, independent doctors are brought in to judge the discrepancy. These experts categorize each difference as either a "real model error" or a "baseline error" in the original data. This evaluation process does more than just measure the agent's performance; it also acts as a "reverse audit," helping to identify and correct many human labeling errors or omissions in existing medical databases.
+
+When the agent’s results in the second level differ from existing human-made labels in the registry, independent doctors are brought in to judge the discrepancy. These experts categorize each difference as either areal model error or a baseline erro in the original data. This evaluation process does more than just measure the agent's performance; it also acts as a reverse audit, helping to identify and correct many human labeling errors or omissions in existing medical databases.
 ### Workflow Visualization
 
 ```mermaid
