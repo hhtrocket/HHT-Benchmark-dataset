@@ -79,28 +79,31 @@ graph TD
     classDef input fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,rx:5,ry:5;
     classDef report fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,rx:10,ry:10;
 
-    subgraph P1 [第一阶段 智能体构建与记忆循环]
-        N1["1. 提示词工程构建思维链"]:::phase1
-        N2["2. 医疗接口与计算工具集成"]:::phase1
-        N3["3. 提取错误并更新记忆规则"]:::phase1
+    subgraph P1 [ Phase 1: Agent Construction & Memory Loop ]
+        direction TB
+        N1["1. Prompt Engineering<br/>for Chain of Thought"]:::phase1
+        N2["2. Medical API &<br/>Calculation Tools Integration"]:::phase1
+        N3["3. Extract Errors &<br/>Update Memory Rules"]:::phase1
         
         N1 --> N2
         N2 --> N3
     end
 
-    subgraph P2 [第二阶段 临床基准扩展与交互执行]
-        N4["4. 三百个新增复杂临床任务"]:::input
-        N5["5. 智能体电子病历环境交互"]:::phase2
+    subgraph P2 [ Phase 2: Clinical Benchmark & Execution ]
+        direction TB
+        N4["4. 300 New Complex<br/>Clinical Tasks"]:::input
+        N5["5. Agent-EHR<br/>Environment Interaction"]:::phase2
         
         N4 --> N5
     end
 
-    subgraph P3 [第三阶段 定制化代码级深度校验]
-        N6["6. 注入定制化代码评估函数"]:::phase3
-        N7["7. 校验临床时序与用药逻辑"]:::phase3
-        N8["8. 检查底层接口执行保真度"]:::phase3
-        N9["9. 输出首次尝试核心成功率"]:::report
-        N10["10. 综合评估系统成本与延迟"]:::report
+    subgraph P3 [ Phase 3: Custom Code-Level Verification ]
+        direction TB
+        N6["6. Inject Custom<br/>Evaluation Functions"]:::phase3
+        N7["7. Verify Clinical<br/>Timing & Dosing Logic"]:::phase3
+        N8["8. Check API<br/>Execution Fidelity"]:::phase3
+        N9["9. Output First-Try<br/>Success Rate"]:::report
+        N10["10. Assess System<br/>Cost & Latency"]:::report
         
         N6 --> N7
         N6 --> N8
