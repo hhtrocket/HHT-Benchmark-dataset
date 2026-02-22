@@ -221,4 +221,53 @@ graph LR
 
 ---
 
+## 15. Data Interpreter: An LLM Agent For Data Science
+**Field: Data Science Agent Evaluation**
 
+Link：https://aclanthology.org/2025.findings-acl.1016.pdf
+
+**Multi-Task Benchmarking**
+This study establishes a comprehensive evaluation system covering data analysis, machine learning, mathematical reasoning, and open-ended tasks. Testing is conducted on real-world datasets and multiple standardized benchmarks, such as Kaggle competition data and the MATH dataset. The process requires the agent to independently manage the entire workflow—from data preprocessing and feature engineering to model training and evaluation—to test its integrated capability in handling multi-step, complex data science tasks.
+
+**Multi-Dimensional Quantitative Evaluation**
+The evaluation framework combines task completion rates with normalized performance scores to calculate a comprehensive final grade. Beyond just checking final accuracy, the system strictly monitors execution time and resource consumption costs. Furthermore, the study uses various ablation experiments to independently verify the effectiveness of core modules—such as code execution, iterative graph refinement, and programmable node generation—in automated error correction and long-context management.
+
+```mermaid
+graph TD
+    classDef phase1 fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,rx:5,ry:5;
+    classDef phase2 fill:#fce4ec,stroke:#c2185b,stroke-width:2px,rx:5,ry:5;
+    classDef input fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,rx:5,ry:5;
+    classDef report fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,rx:10,ry:10;
+
+    subgraph P1 [ Phase 1: Dynamic Graph Construction and Execution ]
+        direction LR
+        N1["1. Diverse Datasets and Benchmarks"]:::input
+        N2["2. Hierarchical Task Graph Decomposition"]:::phase1
+        N3["3. Granular Action Graph Execution"]:::phase1
+        N4["4. Programmable Node Integration"]:::phase1
+        N5["5. Iterative Error Refinement"]:::phase1
+        
+        N1 --> N2
+        N2 --> N3
+        N3 --> N4
+        N4 --> N5
+    end
+
+    subgraph P2 [ Phase 2: Multidimensional Evaluation ]
+        direction LR
+        N6["6. Completion Rate Calculation"]:::phase2
+        N7["7. Normalized Performance Scoring"]:::phase2
+        N8["8. Latency and Cost Assessment"]:::phase2
+        N9["9. Core Module Ablation Studies"]:::phase2
+        N10["10. Comprehensive Evaluation Report"]:::report
+        
+        N6 --> N7
+        N7 --> N8
+        N8 --> N9
+        N9 --> N10
+    end
+
+    N5 --> N6
+```
+
+---
