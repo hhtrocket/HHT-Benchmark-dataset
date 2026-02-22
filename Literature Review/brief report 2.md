@@ -2,6 +2,8 @@
 
 **Domain**: Medical Dialogue Simulation and Clinical Evaluation
 
+Link :https://www.arxiv.org/abs/2601.04195
+
 **Environment Construction and Dialogue Simulation Phase**
 The framework utilizes synthetic electronic health records to construct patient packets. AI patients are instantiated based on these patient packets, integrated with memory and emotion systems. The evaluation task is defined by a matrix comprising encounter reasons and encounter objectives. The target agent acts as a doctor, conducting multi-turn text-based consultations with the AI patient to generate an interaction trajectory.
 
