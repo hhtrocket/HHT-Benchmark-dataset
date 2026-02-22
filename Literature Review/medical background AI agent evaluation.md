@@ -79,7 +79,7 @@ graph TD
     classDef input fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,rx:5,ry:5;
     classDef report fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,rx:10,ry:10;
 
-    subgraph P1 [ Phase 1: Agent Construction & Memory Loop ]
+    subgraph P1 [ Phase 1:Construction  ]
 
         direction TB
         N1["1. Prompt Engineering<br/>for Chain of Thought"]:::phase1
@@ -90,7 +90,7 @@ graph TD
         N2 --> N3
     end
 
-    subgraph P2 [ Phase 2: Clinical Benchmark & Execution ]
+    subgraph P2 [ Phase 2:Benchmark]
 
         direction TB
         N4["4. 300 New Complex<br/>Clinical Tasks"]:::input
@@ -99,7 +99,7 @@ graph TD
         N4 --> N5
     end
 
-    subgraph P3 [ Phase 3: Custom Code-Level Verification ]
+    subgraph P3 [ Phase 3:Verification ]
 
         direction TB
         N6["6. Inject Custom<br/>Evaluation Functions"]:::phase3
