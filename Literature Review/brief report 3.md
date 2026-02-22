@@ -140,7 +140,7 @@ graph TD
     classDef input fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,rx:5,ry:5;
     classDef report fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,rx:10,ry:10;
 
-    subgraph P1 Phase 1:Two Tier Evaluation
+    subgraph  Phase 1:Two Tier Evaluation
         direction TB
         N1["1. Database and EHR Input"]:::input
         N2["2. Tier 1 Structured Extraction"]:::phase1
@@ -150,7 +150,7 @@ graph TD
         N2 --> N3
     end
 
-    subgraph P2 ["Phase 2: Adjudication and Audit"]
+    subgraph Phase 2: Adjudication and Audit
         direction TB
         N4["4. Compare with Ground Truth"]:::phase2
         N5["5. Independent Expert Adjudication"]:::phase2
