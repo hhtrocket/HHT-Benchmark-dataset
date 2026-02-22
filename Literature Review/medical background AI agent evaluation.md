@@ -180,36 +180,43 @@ The system creates a multi-round query environment based on real-world datasets.
 The evaluation framework employs an LLM-as-a-judge to score the agent’s entire output trajectory across three dimensions: reasoning, code quality, and final outcomes. By moving beyond simple "single-answer" comparisons, this mechanism fully quantifies the agent's comprehensive performance when solving open-ended data science problems.
 
 ```mermaid
-graph TD
+graph LR
     classDef phase1 fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,rx:5,ry:5;
     classDef phase2 fill:#fce4ec,stroke:#c2185b,stroke-width:2px,rx:5,ry:5;
     classDef input fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,rx:5,ry:5;
     classDef report fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,rx:10,ry:10;
 
-    subgraph P1 [ Phase 1: Environment and Execution ]
-        direction TB
-        N1["1. Real World Datasets"]:::input
-        N2["2. Multimodal Perception"]:::phase1
-        N3["3. Multi Query Interaction"]:::phase1
-        N4["4. Agent Outputs"]:::phase1
+    subgraph P1 [ "Phase 1: Environment and Interaction" ]
+        direction LR
+        N1["1. Real World Datasets<br/>Text and Vision"]:::input
+        N2["2. Multimodal<br/>Perception"]:::phase1
+        N3["3. Multi Query<br/>Iterative Interaction"]:::phase1
+        N4["4. Code and Reasoning<br/>Generation"]:::phase1
+        N5["5. Execution Outputs<br/>and Trajectories"]:::phase1
         
         N1 --> N2
         N2 --> N3
         N3 --> N4
+        N4 --> N5
     end
 
-    subgraph P2 [ Phase 2: Multidimensional Evaluation ]
-        direction TB
-        N5["5. LLM Judges"]:::phase2
-        N6["6. Score Reasoning and Code"]:::phase2
-        N7["7. Score Final Results"]:::phase2
-        N8["8. Final Assessment"]:::report
+    subgraph P2 [ "Phase 2: Multi Dimensional Evaluation" ]
+        direction LR
+        N6["6. LLM as a Judge<br/>System"]:::phase2
+        N7["7. Dimension 1<br/>Reasoning Logic"]:::phase2
+        N8["8. Dimension 2<br/>Code Quality"]:::phase2
+        N9["9. Dimension 3<br/>Final Results"]:::phase2
+        N10["10. Trajectory Scoring<br/>and Aggregation"]:::phase2
+        N11["11. Comprehensive<br/>Evaluation Report"]:::report
         
-        N4 --> N5
-        N5 --> N6
-        N5 --> N7
-        N6 & N7 --> N8
+        N6 --> N7
+        N6 --> N8
+        N6 --> N9
+        N7 & N8 & N9 --> N10
+        N10 --> N11
     end
+
+    N5 --> N6
 ```
 
 ---
