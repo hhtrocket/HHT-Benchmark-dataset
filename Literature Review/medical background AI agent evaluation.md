@@ -242,9 +242,9 @@ graph LR
 
     subgraph P1 [Phase 1: Evaluation Setup and Execution]
         direction LR
-        N1["1. Multi-Domain Benchmarks<br/>(构建多领域测试基准)"]:::input
-        N2["2. Baselines & LLMs Setup<br/>(对照组与大模型配置)"]:::phase1
-        N3["3. Trajectory Execution<br/>(智能体执行轨迹收集)"]:::phase1
+        N1["1. Multi-Domain<br/>Benchmarks"]:::input
+        N2["2. Baselines &<br/>LLMs Setup"]:::phase1
+        N3["3. Trajectory<br/>Execution"]:::phase1
         
         N1 --> N3
         N2 --> N3
@@ -252,9 +252,9 @@ graph LR
 
     subgraph P2 [Phase 2: Multidimensional Quantitative Metrics]
         direction LR
-        N4["4. Task Completion Rate<br/>(CR: 任务完成率计算)"]:::phase2
-        N5["5. Normalized Performance<br/>(NPS: 归一化性能打分)"]:::phase2
-        N6["6. Comprehensive Score<br/>(CS: 综合加权评分)"]:::phase2
+        N4["4. Task Completion<br/>Rate (CR)"]:::phase2
+        N5["5. Normalized Performance<br/>Score (NPS)"]:::phase2
+        N6["6. Comprehensive<br/>Score (CS)"]:::phase2
         
         N3 --> N4
         N3 --> N5
@@ -263,10 +263,10 @@ graph LR
 
     subgraph P3 [Phase 3: In-depth Analysis and Reporting]
         direction LR
-        N7["7. Efficiency Metrics<br/>(时间延迟与资金成本测算)"]:::phase3
-        N8["8. Core Module Ablation<br/>(核心模块消融实验验证)"]:::phase3
-        N9["9. Advanced LLM Comparison<br/>(跨推理大模型对比测试)"]:::phase3
-        N10["10. Final Evaluation Report<br/>(输出最终综合评估报告)"]:::report
+        N7["7. Efficiency Metrics<br/>(Cost & Latency)"]:::phase3
+        N8["8. Core Module<br/>Ablation"]:::phase3
+        N9["9. Advanced LLM<br/>Comparison"]:::phase3
+        N10["10. Final Evaluation<br/>Report"]:::report
         
         N6 --> N7
         N7 --> N8
