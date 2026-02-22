@@ -202,7 +202,7 @@ graph LR
         N4 --> N5
     end
 
-    subgraphMulti Dimensional Evaluation
+    subgraph Multi Dimensional Evaluation
         direction LR
         N6["6. LLM as a Judge<br/>System"]:::phase2
         N7["7. Dimension 1<br/>Reasoning Logic"]:::phase2
