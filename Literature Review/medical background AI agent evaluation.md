@@ -72,35 +72,44 @@ The evaluation goes beyond standard benchmarks by introducing 300 new, complex, 
 ### Workflow Visualization
 
 ```mermaid
-graph TB
+graph TD
     classDef phase1 fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,rx:5,ry:5;
     classDef phase2 fill:#fce4ec,stroke:#c2185b,stroke-width:2px,rx:5,ry:5;
+    classDef phase3 fill:#fff3e0,stroke:#e65100,stroke-width:2px,rx:5,ry:5;
     classDef input fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,rx:5,ry:5;
     classDef report fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,rx:10,ry:10;
 
-    subgraph P1 [Phase 1 Agent Optimization]
-        N1["1. EHR Tasks"]:::input
-        N2["2. Prompt Engineering"]:::phase1
-        N3["3. Tool Calling"]:::phase1
-        N4["4. Memory Feedback"]:::phase1
+    subgraph P1 [第一阶段 智能体构建与记忆循环]
+        N1["1. 提示词工程构建思维链"]:::phase1
+        N2["2. 医疗接口与计算工具集成"]:::phase1
+        N3["3. 提取错误并更新记忆规则"]:::phase1
         
         N1 --> N2
         N2 --> N3
-        N3 --> N4
     end
 
-    subgraph P2 [Phase 2 Execution and Evaluation]
-        N5["5. Clinical Execution"]:::phase2
-        N6["6. Custom Evaluation Functions"]:::phase2
-        N7["7. Logic Verification"]:::phase2
-        N8["8. Success Rate Metric"]:::report
+    subgraph P2 [第二阶段 临床基准扩展与交互执行]
+        N4["4. 三百个新增复杂临床任务"]:::input
+        N5["5. 智能体电子病历环境交互"]:::phase2
         
-        N5 --> N6
-        N6 --> N7
-        N7 --> N8
+        N4 --> N5
     end
 
-    N4 --> N5
+    subgraph P3 [第三阶段 定制化代码级深度校验]
+        N6["6. 注入定制化代码评估函数"]:::phase3
+        N7["7. 校验临床时序与用药逻辑"]:::phase3
+        N8["8. 检查底层接口执行保真度"]:::phase3
+        N9["9. 输出首次尝试核心成功率"]:::report
+        N10["10. 综合评估系统成本与延迟"]:::report
+        
+        N6 --> N7
+        N6 --> N8
+        N7 & N8 --> N9
+        N9 --> N10
+    end
+
+    N3 --> N5
+    N5 --> N6
 ```
 
 ---
