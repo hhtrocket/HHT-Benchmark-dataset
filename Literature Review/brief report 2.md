@@ -104,3 +104,58 @@ graph LR
 ```
 
 ---
+
+## 8. MedAgentBoard Comprehensive Medical Multi Agent Collaboration Evaluation
+
+**Domain**: Medical Multimodal Tasks and Multi Agent Evaluation
+
+**Heterogeneous Task and Benchmark Construction Phase**
+The framework constructs four medical tasks including medical question answering medical record summary generation electronic health record prediction and clinical workflow automation. To evaluate system performance this benchmark tests various multi agent collaboration frameworks and introduces single large language models and task specific traditional machine learning models as strong baselines.
+
+**Hybrid Metrics and Human Intervention Evaluation Phase**
+Differentiated evaluation standards are adopted for tasks with distinct modalities and complexities. Multiple choice and predictive model tasks use objective quantitative metrics like accuracy or area under the receiver operating characteristic curve. Open ended question answering uses a large language model judge to evaluate semantic correctness and factual consistency. Clinical workflow automation tasks introduce a multidisciplinary expert team for manual review to assess code execution rate and clinical validity.
+
+```mermaid
+graph LR
+    classDef phase1 fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,rx:5,ry:5;
+    classDef phase2 fill:#fce4ec,stroke:#c2185b,stroke-width:2px,rx:5,ry:5;
+    classDef input fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,rx:5,ry:5;
+    classDef report fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,rx:10,ry:10;
+
+    subgraph Phase1 [Phase 1 Task and Baseline Setup]
+        Task["1. Diverse Medical<br/>Tasks"]:::input
+        MultiAgent["2. Multi Agent<br/>Frameworks"]:::phase1
+        SingleLLM["3. Single LLM<br/>Baselines"]:::phase1
+        ConvML["4. Conventional<br/>ML Models"]:::phase1
+        Exec["5. Execution<br/>Environment"]:::phase1
+        
+        Task --> MultiAgent
+        Task --> SingleLLM
+        Task --> ConvML
+        MultiAgent --> Exec
+        SingleLLM --> Exec
+        ConvML --> Exec
+    end
+
+    subgraph Phase2 [Phase 2 Hybrid Evaluation]
+        Out["6. Task<br/>Outputs"]:::input
+        Obj["7. Objective<br/>Metrics"]:::phase2
+        Judge["8. LLM<br/>Judge"]:::phase2
+        Human["9. Expert<br/>Panel"]:::phase2
+        Score["10. Final<br/>Scores"]:::phase2
+        
+        Exec --> Out
+        Out --> Obj
+        Out --> Judge
+        Out --> Human
+        Obj --> Score
+        Judge --> Score
+        Human --> Score
+    end
+
+    Report["11. Comprehensive<br/>Report"]:::report
+    
+    Score --> Report
+```
+
+---
