@@ -20,35 +20,36 @@ graph TD
     classDef input fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,rx:5,ry:5;
     classDef report fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,rx:10,ry:10;
 
-    subgraph Phase1 [Phase 1: Data Preparation and Benchmark]
-        Notes["1. Raw EHR Notes"]:::input
-        Summaries["2. AI-Generated Summaries"]:::input
-        Rubric["3. PDSQI-9 Rubric"]:::input
-        HumanEval["4. Human Expert Benchmark"]:::phase1
+    subgraph Phase1 [Phase 1: Data Preparation & Benchmark]
+        Data["1. Clinical Data (EHR Notes & AI Summaries)"]:::input
+        Rubric["2. PDSQI-9 Evaluation Rubric"]:::input
+        Benchmark["3. Human Expert Benchmark"]:::phase1
         
-        Notes & Summaries --> HumanEval
-        Rubric --> HumanEval
+        Data --> Benchmark
+        Rubric --> Benchmark
     end
 
-    subgraph Phase2 [Phase 2: Multidimensional Judging and Validation]
-        Strategy["5. AI Judging Strategy<br/>(Single / Tuned / Multi-Agent)"]:::phase2
-        LLMScore["6. LLM Grading"]:::phase2
-        LLMReason["7. LLM Reasoning"]:::phase2
-        Validation["8. ICC Reliability Validation"]:::phase2
-        CrossTask["9. Cross-task Validation<br/>(ProbSum)"]:::phase2
-        Report["10. Automated Evaluation Report"]:::report
+    subgraph Phase2 [Phase 2: AI Evaluation & Validation]
+        Setup["4. Prompt Engineering & Setup"]:::phase2
+        Models["5. AI Models (GPT-o3 / DeepSeek / Mixtral)"]:::phase2
+        Outputs["6. LLM Outputs (Scores & Reasoning)"]:::phase2
+        Validation["7. ICC Reliability Validation"]:::phase2
+        Analysis["8. Error & Cost Analysis"]:::phase2
+        CrossTask["9. Cross-Task Validation (ProbSum)"]:::phase2
+        Report["10. Final Evaluation Report"]:::report
         
-        Strategy --> LLMScore
-        Strategy --> LLMReason
-        LLMScore --> Validation
-        Validation --> CrossTask
+        Setup --> Models
+        Models --> Outputs
+        Outputs --> Validation
+        Validation --> Analysis
+        Analysis --> CrossTask
         CrossTask --> Report
-        LLMReason --> Report
     end
 
-    %% Cross-phase connections
-    Notes & Summaries & Rubric --> Strategy
-    HumanEval -.->|As Gold Standard Benchmark| Validation
+    %% Minimal Cross-Phase Connections
+    Data --> Setup
+    Rubric --> Setup
+    Benchmark --> Validation
 ```
 
 ---
