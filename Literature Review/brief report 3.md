@@ -140,7 +140,7 @@ graph TD
     classDef input fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,rx:5,ry:5;
     classDef report fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,rx:10,ry:10;
 
-    subgraph  Phase 1:Two Tier Evaluation
+    subgraph Phase 1:Two Tier Evaluation
         direction TB
         N1["1. Database and EHR Input"]:::input
         N2["2. Tier 1 Structured Extraction"]:::phase1
@@ -188,7 +188,7 @@ graph LR
     classDef input fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,rx:5,ry:5;
     classDef report fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,rx:10,ry:10;
 
-    subgraph P1 [Phase 1: Environment ]
+    subgraph Phase 1: Environment
         direction LR
         N1["1. Real World Datasets<br/>Text and Vision"]:::input
         N2["2. Multimodal<br/>Perception"]:::phase1
@@ -202,7 +202,7 @@ graph LR
         N4 --> N5
     end
 
-    subgraph P2 [Phase 2: Multi Dimensional Evaluation]
+    subgraph Phase 2:Multi Dimensional Evaluation
         direction LR
         N6["6. LLM as a Judge<br/>System"]:::phase2
         N7["7. Dimension 1<br/>Reasoning Logic"]:::phase2
@@ -244,7 +244,7 @@ graph LR
     classDef input fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,rx:5,ry:5;
     classDef report fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,rx:10,ry:10;
 
-    subgraph P1 [Phase 1: Evaluation Setup and Execution]
+    subgraph Phase 1: Evaluation Setup and Execution
         direction LR
         N1["1. Multi-Domain<br/>Benchmarks"]:::input
         N2["2. Baselines &<br/>LLMs Setup"]:::phase1
@@ -254,7 +254,7 @@ graph LR
         N2 --> N3
     end
 
-    subgraph P2 [Phase 2: Multidimensional Quantitative Metrics]
+    subgraph Phase 2: Multidimensional Quantitative Metrics
         direction LR
         N4["4. Task Completion<br/>Rate (CR)"]:::phase2
         N5["5. Normalized Performance<br/>Score (NPS)"]:::phase2
