@@ -58,26 +58,27 @@ flowchart TB
 
 ---
 ## 12.MedAgent Bench v2: Medical LLM Agent Design
-Domain: EHR Agent Evaluation
+**Domain: EHR Agent Evaluation**
 
 link：https://www.worldscientific.com/doi/10.1142/9789819824755_0025
 
 **Agent Construction & Optimization**
+
 This phase focuses on optimizing medical agents by refining prompt engineering and tool integration. The system requires agents to generate step-by-step plans before taking any action. Agents are equipped with specialized tools for querying FHIR standard APIs, performing mathematical calculations, and formatting outputs. Additionally, a memory feedback mechanism was introduced, allowing agents to extract lessons from past mistakes and update their system prompts, enabling strategy adaptation across different tasks.
 
 **Clinical Task Testing & Evaluation**
+
 The evaluation goes beyond standard benchmarks by introducing 300 new, complex, multi-step clinical tasks developed with the help of human doctors to test generalization. For each task, the system uses custom-coded evaluation functions to automatically verify the agent's clinical reasoning logic and the accuracy of its API calls. The core metric for the final assessment is the First-Trial Success Rate.
 ### Workflow Visualization
 
 ```mermaid
-flowchart TB
+graph TB
     classDef phase1 fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,rx:5,ry:5;
     classDef phase2 fill:#fce4ec,stroke:#c2185b,stroke-width:2px,rx:5,ry:5;
     classDef input fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,rx:5,ry:5;
     classDef report fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,rx:10,ry:10;
 
     subgraph P1 [Phase 1 Agent Optimization]
-        direction TB
         N1["1. EHR Tasks"]:::input
         N2["2. Prompt Engineering"]:::phase1
         N3["3. Tool Calling"]:::phase1
@@ -89,17 +90,17 @@ flowchart TB
     end
 
     subgraph P2 [Phase 2 Execution and Evaluation]
-        direction TB
         N5["5. Clinical Execution"]:::phase2
         N6["6. Custom Evaluation Functions"]:::phase2
         N7["7. Logic Verification"]:::phase2
         N8["8. Success Rate Metric"]:::report
         
-        N4 --> N5
         N5 --> N6
         N6 --> N7
         N7 --> N8
     end
+
+    N4 --> N5
 ```
 
 ---
