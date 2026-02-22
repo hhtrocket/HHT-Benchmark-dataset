@@ -59,6 +59,8 @@ graph LR
 ## 2. MCPEval: Automatic MCP-based Deep Evaluation
 
 > **Domain:** Tool Use / Model Context Protocol
+> 
+Link:https://arxiv.org/pdf/2507.12806
 
 **Phase 1: Benchmark Construction** The system automates dataset creation by employing a Generator LLM to synthesize tasks based on specific tool definitions. To ensure validity, a Verifier Agent attempts to solve each generated task. Only scenarios that are successfully resolved by this frontier model are retained in the final Benchmark Set, while unsolvable ones are discarded to maintain high quality.
 
@@ -121,6 +123,8 @@ graph LR
 ## 3. DeepAnalyze: Autonomous Data Science
 
 > **Domain:** Data Analysis / End-to-End Execution
+> 
+Link:https://arxiv.org/abs/2510.16872
 
 **Autonomous Execution Phase** The target agent receives natural language instructions and raw data, autonomously managing the full loop from code generation to execution. It must not only ensure the Python code runs successfully to produce accurate charts but also synthesize these findings into a deep research report, replicating the workflow of a human data analyst.
 
@@ -271,6 +275,8 @@ graph LR
 ## 5. MAJ-EVAL: Multi-Agent-as-Judge
 
 **Domain**: General / Multi-dimensional Human Alignment
+
+Link:https://arxiv.org/abs/2507.21028
 
 **Persona Construction Phase**
 This phase utilizes a Persona Miner to automate the creation of evaluator profiles. Instead of relying on manual prompts, the system analyzes source documents such as research papers or official grading rubrics to extract specific evaluation dimensions. These dimensions are then used to instantiate multiple stakeholder agents. Each agent represents a distinct professional or user perspective, such as a domain expert, an end-user, or a technical auditor, ensuring the evaluation is grounded in realistic and diverse criteria.
