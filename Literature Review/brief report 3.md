@@ -188,7 +188,7 @@ graph LR
     classDef input fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,rx:5,ry:5;
     classDef report fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,rx:10,ry:10;
 
-    subgraph Phase 1: Environment
+    subgraph Environment Setup
         direction LR
         N1["1. Real World Datasets<br/>Text and Vision"]:::input
         N2["2. Multimodal<br/>Perception"]:::phase1
@@ -202,7 +202,7 @@ graph LR
         N4 --> N5
     end
 
-    subgraph Phase 2:Multi Dimensional Evaluation
+    subgraph Multi Dimensional Evaluation
         direction LR
         N6["6. LLM as a Judge<br/>System"]:::phase2
         N7["7. Dimension 1<br/>Reasoning Logic"]:::phase2
