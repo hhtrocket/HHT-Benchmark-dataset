@@ -228,6 +228,7 @@ graph LR
 **Domain**: Medical Education and Virtual Patient History-Taking Evaluation 
 
 Link: https://medinform.jmir.org/2026/1/e79039
+
 **Evaluation Process and Methodology**
 The review analyzes a multidimensional framework for assessing virtual patient agents across clinical accuracy, communication quality, stability, and educational impact. Researchers typically involve medical students or experts to engage in dialogue with agents, collecting data on history-taking and diagnostic reasoning performance. The evaluation process integrates quantitative metrics with qualitative feedback, comparing LLMs against human physicians or varying prompt strategies to verify reliability in clinical simulations.
 
