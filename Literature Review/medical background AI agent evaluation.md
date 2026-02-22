@@ -14,13 +14,14 @@ The research further introduces a multi-agent discussion framework. Agents are a
 ### Workflow Visualization
 
 ```mermaid
-graph TD
+flowchart TD
     classDef phase1 fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,rx:5,ry:5;
     classDef phase2 fill:#fce4ec,stroke:#c2185b,stroke-width:2px,rx:5,ry:5;
     classDef input fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,rx:5,ry:5;
     classDef report fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,rx:10,ry:10;
 
-    subgraph Phase1 [Phase 1: Data Preparation]
+    subgraph Phase1 [ Phase 1 Data Preparation and Benchmark ]
+        direction TB
         Data["1. Clinical Data<br/>EHR and Summaries"]:::input
         Rubric["2. PDSQI 9<br/>Evaluation Rubric"]:::input
         Benchmark["3. Human Expert<br/>Benchmark"]:::phase1
@@ -29,7 +30,8 @@ graph TD
         Rubric --> Benchmark
     end
 
-    subgraph Phase2 [Phase 2: AI Evaluation and Validation]
+    subgraph Phase2 [ Phase 2 AI Evaluation and Validation ]
+        direction TB
         Setup["4. Prompt Engineering<br/>and Setup"]:::phase2
         Models["5. AI Models<br/>Single and Multi Agent"]:::phase2
         Outputs["6. LLM Outputs<br/>Scores and Reasoning"]:::phase2
