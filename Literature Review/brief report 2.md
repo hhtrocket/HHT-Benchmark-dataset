@@ -109,6 +109,8 @@ graph LR
 
 **Domain**: Medical Multimodal Tasks and Multi Agent Evaluation
 
+Link :https://arxiv.org/abs/2505.12371
+
 **Heterogeneous Task and Benchmark Construction Phase**
 The framework constructs four medical tasks including medical question answering medical record summary generation electronic health record prediction and clinical workflow automation. To evaluate system performance this benchmark tests various multi agent collaboration frameworks and introduces single large language models and task specific traditional machine learning models as strong baselines.
 
