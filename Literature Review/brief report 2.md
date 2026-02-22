@@ -58,6 +58,8 @@ graph LR
 
 **Domain**: Clinical Decision-Making and Continuous Interactive Evaluation
 
+Link :https://arxiv.org/abs/2412.01605
+
 **Dynamic Interaction Testing**
 A local model acts as a standardized patient and the target agent acts as a doctor. They engage in multi-turn dialogues to assess the agent's ability to dynamically gather information and provide personalized care.
 
