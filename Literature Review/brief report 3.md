@@ -20,7 +20,7 @@ flowchart TB
     classDef input fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,rx:5,ry:5;
     classDef report fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,rx:10,ry:10;
 
-    subgraph P1 [Phase 1: Setup]
+    subgraph Setup
         direction TB
         N1["1. EHR Notes & Summaries"]:::input
         N2["2. PDSQI-9 Rubric"]:::input
@@ -30,7 +30,7 @@ flowchart TB
         N2 --> N3
     end
 
-    subgraph P2 [Phase 2: AI Evaluation]
+    subgraph  AI Evaluation
         direction TB
         N4["4. Prompt Engineering"]:::phase2
         N5["5. Single & Multi-Agent Setup"]:::phase2
@@ -79,7 +79,7 @@ graph TD
     classDef input fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,rx:5,ry:5;
     classDef report fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,rx:10,ry:10;
 
-    subgraph P1 [ Phase 1:Construction  ]
+    subgraph Construction 
 
         direction TB
         N1["1. Prompt Engineering<br/>for Chain of Thought"]:::phase1
@@ -99,7 +99,7 @@ graph TD
         N4 --> N5
     end
 
-    subgraph P3 [ Phase 3:Verification ]
+    subgraph Verification
 
         direction TB
         N6["6. Inject Custom<br/>Evaluation Functions"]:::phase3
@@ -140,7 +140,7 @@ graph TD
     classDef input fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,rx:5,ry:5;
     classDef report fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,rx:10,ry:10;
 
-    subgraph Phase 1:Two Tier Evaluation
+    subgraph Two Tier Evaluation
         direction TB
         N1["1. Database and EHR Input"]:::input
         N2["2. Tier 1 Structured Extraction"]:::phase1
@@ -150,7 +150,7 @@ graph TD
         N2 --> N3
     end
 
-    subgraph Phase 2: Adjudication and Audit
+    subgraph Adjudication and Audit
         direction TB
         N4["4. Compare with Ground Truth"]:::phase2
         N5["5. Independent Expert Adjudication"]:::phase2
@@ -244,7 +244,7 @@ graph LR
     classDef input fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,rx:5,ry:5;
     classDef report fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,rx:10,ry:10;
 
-    subgraph Phase 1: Evaluation Setup and Execution
+    subgraph Evaluation Setup and Execution
         direction LR
         N1["1. Multi-Domain<br/>Benchmarks"]:::input
         N2["2. Baselines &<br/>LLMs Setup"]:::phase1
@@ -254,7 +254,7 @@ graph LR
         N2 --> N3
     end
 
-    subgraph Phase 2: Multidimensional Quantitative Metrics
+    subgraph Multidimensional Quantitative Metrics
         direction LR
         N4["4. Task Completion<br/>Rate (CR)"]:::phase2
         N5["5. Normalized Performance<br/>Score (NPS)"]:::phase2
@@ -265,7 +265,7 @@ graph LR
         N4 & N5 --> N6
     end
 
-    subgraph P3 [Phase 3: In-depth Analysis and Reporting]
+    subgraph In-depth Analysis and Reporting
         direction LR
         N7["7. Efficiency Metrics<br/>(Cost & Latency)"]:::phase3
         N8["8. Core Module<br/>Ablation"]:::phase3
@@ -301,7 +301,7 @@ graph LR
     classDef input fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,rx:5,ry:5;
     classDef report fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,rx:10,ry:10;
 
-    subgraph P1 [Phase 1 Environment and Execution]
+    subgraph Environment and Execution
         direction LR
         N1["1. Heterogeneous Data<br/>Sources"]:::input
         N2["2. Analytical Query<br/>Input"]:::input
@@ -313,7 +313,7 @@ graph LR
         N3 --> N4
     end
 
-    subgraph P2 [Phase 2 Stepwise Verification]
+    subgraph  Stepwise Verification
         direction LR
         N5["5. Step by Step<br/>Logic Check"]:::phase2
         N6["6. Tool Execution<br/>Accuracy"]:::phase2
@@ -324,7 +324,7 @@ graph LR
         N6 --> N7
     end
 
-    subgraph P3 [Phase 3 Final Assessment]
+    subgraph  Final Assessment
         direction LR
         N8["8. Success Rate<br/>Calculation"]:::phase3
         N9["9. Bottleneck<br/>Analysis"]:::phase3
