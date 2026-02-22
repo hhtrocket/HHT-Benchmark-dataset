@@ -14,43 +14,46 @@ The research further introduces a multi-agent discussion framework. Agents are a
 ### Workflow Visualization
 
 ```mermaid
-flowchart TD
+flowchart TB
     classDef phase1 fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,rx:5,ry:5;
     classDef phase2 fill:#fce4ec,stroke:#c2185b,stroke-width:2px,rx:5,ry:5;
     classDef input fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,rx:5,ry:5;
     classDef report fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,rx:10,ry:10;
 
-    subgraph Phase1 [ Phase 1 Data Preparation and Benchmark ]
+    subgraph P1 [Phase 1: Setup & Benchmark]
         direction TB
-        Data["1. Clinical Data<br/>EHR and Summaries"]:::input
-        Rubric["2. PDSQI 9<br/>Evaluation Rubric"]:::input
-        Benchmark["3. Human Expert<br/>Benchmark"]:::phase1
+        N1["1. EHR Notes & Summaries"]:::input
+        N2["2. PDSQI-9 Rubric"]:::input
+        N3["3. Human Expert Benchmark"]:::phase1
         
-        Data --> Benchmark
-        Rubric --> Benchmark
+        N1 --> N3
+        N2 --> N3
     end
 
-    subgraph Phase2 [ Phase 2 AI Evaluation and Validation ]
+    subgraph P2 [Phase 2: AI Evaluation]
         direction TB
-        Setup["4. Prompt Engineering<br/>and Setup"]:::phase2
-        Models["5. AI Models<br/>Single and Multi Agent"]:::phase2
-        Outputs["6. LLM Outputs<br/>Scores and Reasoning"]:::phase2
-        Validation["7. ICC Reliability<br/>Validation"]:::phase2
-        Analysis["8. Error and Cost<br/>Analysis"]:::phase2
-        CrossTask["9. Cross Task<br/>Validation"]:::phase2
-        Report["10. Final<br/>Evaluation Report"]:::report
+        N4["4. Prompt Engineering"]:::phase2
+        N5["5. Single & Multi-Agent Setup"]:::phase2
+        N6["6. AI Models Inference"]:::phase2
+        N7["7. Output: Scores & Reasoning"]:::phase2
+        N8["8. ICC Reliability Validation"]:::phase2
+        N9["9. Error & Cost Analysis"]:::phase2
+        N10["10. Cross-Task Validation"]:::phase2
+        N11["11. Final Evaluation Report"]:::report
         
-        Setup --> Models
-        Models --> Outputs
-        Outputs --> Validation
-        Validation --> Analysis
-        Analysis --> CrossTask
-        CrossTask --> Report
+        N4 --> N5
+        N5 --> N6
+        N6 --> N7
+        N7 --> N8
+        N8 --> N9
+        N9 --> N10
+        N10 --> N11
     end
 
-    Data --> Setup
-    Rubric --> Setup
-    Benchmark -.-> Validation
+    %% Minimal Cross-Phase Connections
+    N1 --> N4
+    N2 --> N4
+    N3 -.->|Gold Standard| N8
 ```
 
 ---
