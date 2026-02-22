@@ -276,3 +276,58 @@ graph LR
 ```
 
 ---
+## 16. FDABench: Data Agent Benchmark
+**Domain: Heterogeneous Data Agent Evaluation**
+
+Link：https://arxiv.org/pdf/2509.02473
+
+**Heterogeneous Data Environment & Multi-Source Querying**
+This study establishes a multi-source data lake testing environment containing both structured and unstructured data. Agents receive complex analytical instructions and must independently coordinate LLMs and external tools. They perform cross-modal retrieval and joint queries across text, images, and relational databases to generate a complete data analysis trajectory.
+
+**Multi-Granularity Verification & Performance Evaluation**
+The system performs rigorous scoring by comparing the agent's intermediate query steps against its final outputs. The evaluation framework independently breaks down and verifies the accuracy of tool calls, the logical coherence of cross-modal data integration, and the correctness rate of the final data solution. This benchmark effectively quantifies the reasoning bottlenecks of existing models when processing heterogeneous data.
+
+```mermaid
+graph LR
+    classDef phase1 fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,rx:5,ry:5;
+    classDef phase2 fill:#fce4ec,stroke:#c2185b,stroke-width:2px,rx:5,ry:5;
+    classDef phase3 fill:#fff3e0,stroke:#e65100,stroke-width:2px,rx:5,ry:5;
+    classDef input fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,rx:5,ry:5;
+    classDef report fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,rx:10,ry:10;
+
+    subgraph P1 [Phase 1 Environment and Execution]
+        direction LR
+        N1["1. Heterogeneous Data<br/>Sources"]:::input
+        N2["2. Analytical Query<br/>Input"]:::input
+        N3["3. Agent Tool<br/>Routing"]:::phase1
+        N4["4. Cross Modal<br/>Retrieval"]:::phase1
+        
+        N1 --> N3
+        N2 --> N3
+        N3 --> N4
+    end
+
+    subgraph P2 [Phase 2 Stepwise Verification]
+        direction LR
+        N5["5. Step by Step<br/>Logic Check"]:::phase2
+        N6["6. Tool Execution<br/>Accuracy"]:::phase2
+        N7["7. Final Answer<br/>Verification"]:::phase2
+        
+        N4 --> N5
+        N5 --> N6
+        N6 --> N7
+    end
+
+    subgraph P3 [Phase 3 Final Assessment]
+        direction LR
+        N8["8. Success Rate<br/>Calculation"]:::phase3
+        N9["9. Bottleneck<br/>Analysis"]:::phase3
+        N10["10. Evaluation<br/>Report"]:::report
+        
+        N7 --> N8
+        N8 --> N9
+        N9 --> N10
+    end
+```
+
+---
