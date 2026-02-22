@@ -5,9 +5,11 @@
 Link :https://www.arxiv.org/abs/2601.04195
 
 **Environment Construction and Dialogue Simulation Phase**
+
 The framework utilizes synthetic electronic health records to construct patient packets. AI patients are instantiated based on these patient packets, integrated with memory and emotion systems. The evaluation task is defined by a matrix comprising encounter reasons and encounter objectives. The target agent acts as a doctor, conducting multi-turn text-based consultations with the AI patient to generate an interaction trajectory.
 
 **Multidimensional Fine-Grained Evaluation Phase**
+
 The evaluation framework contains 105 fine-grained dimensions mapped to medical competency categories. A committee of large language model judges conducts internal discussions on the dialogue trajectories and extracts evidence. Based on the discussion results, the judges assign discrete scores from one to four across all dimensions. The system ultimately outputs a comprehensive evaluation report containing quantitative scores and associated evidence.
 
 ### Workflow Visualization
@@ -61,9 +63,11 @@ graph LR
 Link :https://arxiv.org/abs/2412.01605
 
 **Dynamic Interaction Testing**
+
 A local model acts as a standardized patient and the target agent acts as a doctor. They engage in multi-turn dialogues to assess the agent's ability to dynamically gather information and provide personalized care.
 
 **Continuous Execution and Hybrid Scoring**
+
 Agents sequentially complete five tasks including triage, history-taking, examination, diagnosis, and treatment. The output of one stage serves as the input for the next to test error propagation. Scoring uses hybrid metrics where Intersection over Union evaluates the triage and treatment stages, while a large language model judge performs text matching and comprehensive scoring for the examination and diagnosis stages based on clinical standards.
 
 ```mermaid
@@ -116,9 +120,11 @@ graph LR
 Link :https://arxiv.org/abs/2505.12371
 
 **Heterogeneous Task and Benchmark Construction Phase**
+
 The framework constructs four medical tasks including medical question answering medical record summary generation electronic health record prediction and clinical workflow automation. To evaluate system performance this benchmark tests various multi agent collaboration frameworks and introduces single large language models and task specific traditional machine learning models as strong baselines.
 
 **Hybrid Metrics and Human Intervention Evaluation Phase**
+
 Differentiated evaluation standards are adopted for tasks with distinct modalities and complexities. Multiple choice and predictive model tasks use objective quantitative metrics like accuracy or area under the receiver operating characteristic curve. Open ended question answering uses a large language model judge to evaluate semantic correctness and factual consistency. Clinical workflow automation tasks introduce a multidisciplinary expert team for manual review to assess code execution rate and clinical validity.
 
 ```mermaid
@@ -171,9 +177,11 @@ graph LR
 Link : https://arxiv.org/abs/2503.07459
 
 **Task Setup and Agent Execution**
+
 MedAgentsBench combines seven medical datasets and removes simple questions to focus on multi-step clinical reasoning and treatment planning. The system tests target models using methods like zero-shot prompting, chain-of-thought, and multi-agent debate. It records the complete step-by-step process the models use to handle complex queries.
 
 **Performance Trade-off Evaluation**
+
 Instead of only measuring accuracy, the evaluation analyzes the trade-offs between reasoning accuracy, financial cost, and time consumption. The system outputs a report to help users select the most cost-effective AI agents for real medical applications.
 
 ```mermaid
@@ -230,9 +238,11 @@ graph LR
 Link: https://medinform.jmir.org/2026/1/e79039
 
 **Evaluation Process and Methodology**
+
 The review analyzes a multidimensional framework for assessing virtual patient agents across clinical accuracy, communication quality, stability, and educational impact. Researchers typically involve medical students or experts to engage in dialogue with agents, collecting data on history-taking and diagnostic reasoning performance. The evaluation process integrates quantitative metrics with qualitative feedback, comparing LLMs against human physicians or varying prompt strategies to verify reliability in clinical simulations.
 
 **Key Metrics and Standards**
+
 Core assessment metrics include Top-k accuracy for diagnostic capability, hallucination rates for factual integrity, and information coverage for thoroughness in gathering patient history. To standardize evaluations, the study proposes specific thresholds, such as requiring Top-1 accuracy above 80% and keeping hallucination rates below 5%. Additionally, usability scales like the System Usability Scale and Chatbot Usability Questionnaire are employed to measure interaction quality and ensure the agent provides practical value in medical education.
 
 ```mermaid
