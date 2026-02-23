@@ -295,44 +295,53 @@ The system performs rigorous scoring by comparing the agent's intermediate query
 
 ```mermaid
 graph LR
-    classDef phase1 fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,rx:5,ry:5;
-    classDef phase2 fill:#fce4ec,stroke:#c2185b,stroke-width:2px,rx:5,ry:5;
-    classDef phase3 fill:#fff3e0,stroke:#e65100,stroke-width:2px,rx:5,ry:5;
+    %% Style Definitions
     classDef input fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,rx:5,ry:5;
-    classDef report fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,rx:10,ry:10;
+    classDef phase1 fill:#e3f2fd,stroke:#1565c0,stroke-width:2px;
+    classDef phase2 fill:#fce4ec,stroke:#c2185b,stroke-width:2px;
+    classDef decision fill:#ffffff,stroke:#333,stroke-width:2px,shape:diamond;
+    classDef score fill:#ffcdd2,stroke:#c62828,stroke-width:2px,rx:50,ry:50;
+    classDef report fill:#e0e0e0,stroke:#333,stroke-width:2px,stroke-dasharray: 5 5;
 
-    subgraph Environment and Execution
-        direction LR
-        N1["1. Heterogeneous Data<br/>Sources"]:::input
-        N2["2. Analytical Query<br/>Input"]:::input
-        N3["3. Agent Tool<br/>Routing"]:::phase1
-        N4["4. Cross Modal<br/>Retrieval"]:::phase1
+    %% === Phase 1: Heterogeneous Execution ===
+    subgraph Phase1 ["Phase 1: Execution and Trajectory Capture"]
+        Query["1. Analytical Query<br/>(User Input)"]:::input
+        DataLake["2. Data Lake<br/>(SQL, Text, Vision)"]:::input
         
-        N1 --> N3
-        N2 --> N3
-        N3 --> N4
+        Agent["3. Target Agent<br/>(Student)"]:::phase1
+        Routing["4. Tool Routing &<br/>Cross-Modal Retrieval"]:::phase1
+        
+        Trajectory["5. Execution Trajectory<br/>(Steps + Final Answer)"]:::input
+
+        Query --> Agent
+        DataLake --> Agent
+        Agent -->|Decompose| Routing
+        Routing -->|Generate| Trajectory
     end
 
-    subgraph  Stepwise Verification
-        direction LR
-        N5["5. Step by Step<br/>Logic Check"]:::phase2
-        N6["6. Tool Execution<br/>Accuracy"]:::phase2
-        N7["7. Final Answer<br/>Verification"]:::phase2
-        
-        N4 --> N5
-        N5 --> N6
-        N6 --> N7
+    %% === Phase 2: Multi-Granularity Evaluation ===
+    subgraph Phase2 ["Phase 2: Granular Verification Logic"]
+        StepCheck{"6. Tool & Logic<br/>Accurate?"}:::decision
+        FinalCheck{"7. Final Answer<br/>Correct?"}:::decision
+        Bottleneck["8. Bottleneck Diagnosis<br/>(Routing / Retrieval Error)"]:::phase2
+
+        Trajectory -->|Extract Steps| StepCheck
+        StepCheck --"No (Step Failed)"--> Bottleneck
+        StepCheck --"Yes (Step Passed)"--> FinalCheck
     end
 
-    subgraph  Final Assessment
-        direction LR
-        N8["8. Success Rate<br/>Calculation"]:::phase3
-        N9["9. Bottleneck<br/>Analysis"]:::phase3
-        N10["10. Evaluation<br/>Report"]:::report
+    %% === Phase 3: Final Assessment ===
+    subgraph Phase3 ["Phase 3: Scoring and Reporting"]
+        M1(("9. Tool Execution<br/>Score")):::score
+        M2(("10. End-to-End<br/>Accuracy")):::score
+        Report["11. Diagnostic<br/>Evaluation Report"]:::report
+
+        Bottleneck --> M1
+        StepCheck -.-> M1
+        FinalCheck --"Yes / No"--> M2
         
-        N7 --> N8
-        N8 --> N9
-        N9 --> N10
+        M1 --> Report
+        M2 --> Report
     end
 ```
 
