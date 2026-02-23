@@ -90,7 +90,7 @@ graph TD
         N2 --> N3
     end
 
-    subgraph P2 [ Phase 2:Benchmark]
+    subgraph Benchmark
 
         direction TB
         N4["4. 300 New Complex<br/>Clinical Tasks"]:::input
