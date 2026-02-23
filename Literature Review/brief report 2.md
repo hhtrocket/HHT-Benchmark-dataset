@@ -77,7 +77,7 @@ graph LR
     classDef input fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,rx:5,ry:5;
     classDef report fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,rx:10,ry:10;
 
-    subgraph Phase1 [Phase 1 Setup and Simulation]
+    subgraph Phase1 [Phase 1 Setup]
         EHR["1. EHR<br/>Cases"]:::input
         SimUser["2. AI Patient<br/>Agent"]:::phase1
         Agent["3. Target Doctor<br/>Agent"]:::phase1
