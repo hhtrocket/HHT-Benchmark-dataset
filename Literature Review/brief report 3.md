@@ -183,42 +183,50 @@ The evaluation framework employs an LLM-as-a-judge to score the agent’s entire
 
 ```mermaid
 graph LR
-    classDef phase1 fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,rx:5,ry:5;
-    classDef phase2 fill:#fce4ec,stroke:#c2185b,stroke-width:2px,rx:5,ry:5;
+    %% Style Definitions
     classDef input fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,rx:5,ry:5;
-    classDef report fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,rx:10,ry:10;
+    classDef phase1 fill:#e3f2fd,stroke:#1565c0,stroke-width:2px;
+    classDef phase2 fill:#fce4ec,stroke:#c2185b,stroke-width:2px;
+    classDef phase3 fill:#fff3e0,stroke:#e65100,stroke-width:2px;
+    classDef decision fill:#ffffff,stroke:#333,stroke-width:2px,shape:diamond;
+    classDef score fill:#ffcdd2,stroke:#c62828,stroke-width:2px,rx:50,ry:50;
+    classDef report fill:#e0e0e0,stroke:#333,stroke-width:2px,stroke-dasharray: 5 5;
 
-    subgraph Environment Setup
-        direction LR
-        N1["1. Real World Datasets<br/>Text and Vision"]:::input
-        N2["2. Multimodal<br/>Perception"]:::phase1
-        N3["3. Multi Query<br/>Iterative Interaction"]:::phase1
-        N4["4. Code and Reasoning<br/>Generation"]:::phase1
-        N5["5. Execution Outputs<br/>and Trajectories"]:::phase1
-        
-        N1 --> N2
-        N2 --> N3
-        N3 --> N4
-        N4 --> N5
+    %% === Environment and Trajectory Capture ===
+    subgraph P1 ["Phase 1: Environment and Trajectory Capture"]
+        Data["1. Real World Datasets<br/>Text and Vision"]:::input
+        Queries["2. Multi Query<br/>Instructions"]:::input
+        Agent["3. Target Agent<br/>Execution"]:::phase1
+        Trajectory["4. Execution Trajectory<br/>Code and Outputs"]:::input
+
+        Data --> Agent
+        Queries --> Agent
+        Agent -->|Iterative Interaction| Trajectory
     end
 
-    subgraph Complex Evaluation
-        direction LR
-        N6["6. LLM as a Judge<br/>System"]:::phase2
-        N7["7. Dimension 1<br/>Reasoning Logic"]:::phase2
-        N8["8. Dimension 2<br/>Code Quality"]:::phase2
-        N9["9. Dimension 3<br/>Final Results"]:::phase2
-        N10["10. Trajectory Scoring<br/>and Aggregation"]:::phase2
-        N11["11. Comprehensive<br/>Evaluation Report"]:::report
-        
-        N6 --> N7
-        N6 --> N8
-        N6 --> N9
-        N7 & N8 & N9 --> N10
-        N10 --> N11
+    %% === Multi Dimensional Judgment ===
+    subgraph P2 ["Phase 2: Multi Dimensional LLM Judgment"]
+        Judge["5. LLM as a Judge<br/>Evaluation System"]:::phase2
+        Check{"6. Dimensional<br/>Verification"}:::decision
+        S1(("7. Reasoning<br/>Score")):::score
+        S2(("8. Code Quality<br/>Score")):::score
+        S3(("9. Final Result<br/>Score")):::score
+
+        Trajectory --> Judge
+        Judge --> Check
+        Check -->|Evaluate Logic| S1
+        Check -->|Evaluate Execution| S2
+        Check -->|Evaluate Accuracy| S3
     end
 
-    N5 --> N6
+    %% === Final Assessment ===
+    subgraph P3 ["Phase 3: Final Assessment"]
+        Agg["10. Weighted Score<br/>Aggregation"]:::phase3
+        Rep["11. Comprehensive<br/>Evaluation Report"]:::report
+
+        S1 & S2 & S3 --> Agg
+        Agg --> Rep
+    end
 ```
 
 ---
