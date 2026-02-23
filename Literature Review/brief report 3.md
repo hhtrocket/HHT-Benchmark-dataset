@@ -303,7 +303,7 @@ graph LR
     classDef score fill:#ffcdd2,stroke:#c62828,stroke-width:2px,rx:50,ry:50;
     classDef report fill:#e0e0e0,stroke:#333,stroke-width:2px,stroke-dasharray: 5 5;
 
-    %% === Phase 1: Heterogeneous Execution ===
+    %% ===Heterogeneous Execution ===
     subgraph Phase1 ["Phase 1: Execution and Trajectory Capture"]
         Query["1. Analytical Query<br/>(User Input)"]:::input
         DataLake["2. Data Lake<br/>(SQL, Text, Vision)"]:::input
@@ -319,7 +319,7 @@ graph LR
         Routing -->|Generate| Trajectory
     end
 
-    %% === Phase 2: Multi-Granularity Evaluation ===
+    %% === Multi-Granularity Evaluation ===
     subgraph Phase2 ["Phase 2: Granular Verification Logic"]
         StepCheck{"6. Tool & Logic<br/>Accurate?"}:::decision
         FinalCheck{"7. Final Answer<br/>Correct?"}:::decision
@@ -330,7 +330,7 @@ graph LR
         StepCheck --"Yes (Step Passed)"--> FinalCheck
     end
 
-    %% === Phase 3: Final Assessment ===
+    %% === Final Assessment ===
     subgraph Phase3 ["Phase 3: Scoring and Reporting"]
         M1(("9. Tool Execution<br/>Score")):::score
         M2(("10. End-to-End<br/>Accuracy")):::score
