@@ -16,42 +16,48 @@ The evaluation framework contains 105 fine-grained dimensions mapped to medical 
 
 ```mermaid
 graph LR
-    classDef phase1 fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,rx:5,ry:5;
-    classDef phase2 fill:#fce4ec,stroke:#c2185b,stroke-width:2px,rx:5,ry:5;
+    %% Style Definitions
     classDef input fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,rx:5,ry:5;
-    classDef report fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,rx:10,ry:10;
+    classDef phase1 fill:#e3f2fd,stroke:#1565c0,stroke-width:2px;
+    classDef phase2 fill:#fce4ec,stroke:#c2185b,stroke-width:2px;
+    classDef decision fill:#ffffff,stroke:#333,stroke-width:2px,shape:diamond;
+    classDef score fill:#ffcdd2,stroke:#c62828,stroke-width:2px,rx:50,ry:50;
+    classDef report fill:#e0e0e0,stroke:#333,stroke-width:2px,stroke-dasharray: 5 5;
 
-    subgraph Phase1 [Phase 1 Setup and Simulation]
-        Task["1. Task<br/>Matrix"]:::input
-        Data["2. Patient<br/>Packets"]:::input
-        SimUser["3. AI Patient<br/>Agent"]:::phase1
-        Agent["4. Target Doctor<br/>Agent"]:::phase1
-        
-        Task --> SimUser
-        Data --> SimUser
-        SimUser <--> Agent
+    %% === Phase 1: Environment Construction and Simulation ===
+    subgraph P1 ["Phase 1: Simulation and Trajectory Capture"]
+        N1["1. Patient Packets<br/>(Synthetic EHRs)"]:::input
+        N2["2. Task Matrix<br/>(Clinical Objectives)"]:::input
+        N3["3. AI Patient<br/>(Memory & Emotion)"]:::phase1
+        N4["4. Target Agent<br/>(Doctor Role)"]:::phase1
+        N5["5. Dialogue Trajectory<br/>(Consultation Logs)"]:::input
+
+        N1 --> N3
+        N2 --> N4
+        N3 <-->|"Multi-turn Interaction"| N4
+        N4 -->|"Record"| N5
     end
 
-    subgraph Phase2 [Phase 2 Multidimensional Evaluation]
-        Trace["5. Conversation<br/>Trajectory"]:::input
-        Rubric["6. Evaluation<br/>Framework"]:::input
-        Judge["7. AI Judge<br/>Committee"]:::phase2
-        Extract["8. Evidence<br/>Extraction"]:::phase2
-        Score["9. Dimension<br/>Scoring"]:::phase2
-        
-        Agent --> Trace
-        SimUser --> Trace
-        Trace --> Judge
-        Rubric --> Judge
-        Judge --> Extract
-        Extract --> Score
+    %% === Phase 2: Multidimensional Evaluation ===
+    subgraph P2 ["Phase 2: Fine-Grained Committee Evaluation"]
+        N6["6. 105-Dimension<br/>Medical Rubric"]:::input
+        N7["7. LLM Judge<br/>Committee"]:::phase2
+        N8{"8. Internal Discussion &<br/>Evidence Extraction"}:::decision
+        N9(("9. Discrete Scoring<br/>(1-4 Scale)")):::score
+
+        N5 --> N7
+        N6 --> N7
+        N7 --> N8
+        N8 -->|"Evaluate Dimensions"| N9
     end
 
-    Metrics["10. Competency<br/>Metrics"]:::report
-    Report["11. Evaluation<br/>Report"]:::report
+    %% === Phase 3: Final Assessment ===
+    subgraph P3 ["Phase 3: Assessment and Reporting"]
+        N10["10. Comprehensive<br/>Evaluation Report"]:::report
 
-    Score --> Metrics
-    Score --> Report
+        N9 -->|"Quantitative Scores"| N10
+        N8 -.->|"Associated Evidence"| N10
+    end
 ```
 
 ---
