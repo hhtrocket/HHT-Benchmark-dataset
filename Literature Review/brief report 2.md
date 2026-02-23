@@ -134,7 +134,7 @@ graph LR
     classDef input fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,rx:5,ry:5;
     classDef report fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,rx:10,ry:10;
 
-    subgraph Phase1 [Phase 1 Task and Baseline Setup]
+    subgraph Phase1 [Phase 1 Task and Setup]
         Task["1. Diverse Medical<br/>Tasks"]:::input
         MultiAgent["2. Multi Agent<br/>Frameworks"]:::phase1
         SingleLLM["3. Single LLM<br/>Baselines"]:::phase1
@@ -216,7 +216,7 @@ graph LR
         Engine --> Trace
     end
 
-    subgraph Phase3 [Phase 3 Performance Evaluation]
+    subgraph Phase3 [Phase 3 Evaluation]
         Acc["9. Accuracy<br/>Metric"]:::phase3
         Cost["10. Financial<br/>Cost"]:::phase3
         Time["11. Inference<br/>Latency"]:::phase3
@@ -253,7 +253,7 @@ graph LR
     classDef input fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,rx:5,ry:5;
     classDef report fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,rx:10,ry:10;
 
-    subgraph Phase1 [Phase 1 Literature and Task Simulation]
+    subgraph Phase1 [Phase 1 Task Simulation]
         Lit["1. Literature<br/>Screening"]:::input
         Task["2. History Taking<br/>Tasks"]:::phase1
         Agent["3. Virtual Patient<br/>Agent"]:::phase1
