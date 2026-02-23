@@ -16,7 +16,6 @@ The evaluation framework contains 105 fine-grained dimensions mapped to medical 
 
 ```mermaid
 graph LR
-    %% Style Definitions
     classDef input fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,rx:5,ry:5;
     classDef phase1 fill:#e3f2fd,stroke:#1565c0,stroke-width:2px;
     classDef phase2 fill:#fce4ec,stroke:#c2185b,stroke-width:2px;
@@ -24,39 +23,32 @@ graph LR
     classDef score fill:#ffcdd2,stroke:#c62828,stroke-width:2px,rx:50,ry:50;
     classDef report fill:#e0e0e0,stroke:#333,stroke-width:2px,stroke-dasharray: 5 5;
 
-    %% === Phase 1: Environment Construction and Simulation ===
     subgraph P1 ["Phase 1: Simulation and Trajectory Capture"]
-        N1["1. Patient Packets<br/>(Synthetic EHRs)"]:::input
-        N2["2. Task Matrix<br/>(Clinical Objectives)"]:::input
-        N3["3. AI Patient<br/>(Memory & Emotion)"]:::phase1
-        N4["4. Target Agent<br/>(Doctor Role)"]:::phase1
-        N5["5. Dialogue Trajectory<br/>(Consultation Logs)"]:::input
+        N1["1. Synthetic EHR<br/>Packets"]:::input
+        N2["2. Clinical Task<br/>Matrix"]:::input
+        N3["3. AI Patient<br/>Simulator"]:::phase1
+        N4["4. Target Agent<br/>Doctor Role"]:::phase1
+        N5["5. Dialogue<br/>Trajectory"]:::input
 
         N1 --> N3
         N2 --> N4
-        N3 <-->|"Multi-turn Interaction"| N4
-        N4 -->|"Record"| N5
+        N3 <-->|"Multi Turn Interaction"| N4
+        N4 -->|"Record Logs"| N5
     end
 
-    %% === Phase 2: Multidimensional Evaluation ===
-    subgraph P2 ["Phase 2: Fine-Grained Committee Evaluation"]
-        N6["6. 105-Dimension<br/>Medical Rubric"]:::input
+    subgraph P2 ["Phase 2: Committee Evaluation and Reporting"]
+        N6["6. Medical Rubric<br/>Dimensions"]:::input
         N7["7. LLM Judge<br/>Committee"]:::phase2
-        N8{"8. Internal Discussion &<br/>Evidence Extraction"}:::decision
-        N9(("9. Discrete Scoring<br/>(1-4 Scale)")):::score
+        N8{"8. Evidence<br/>Extraction"}:::decision
+        N9(("9. Discrete<br/>Scoring")):::score
+        N10["10. Evaluation<br/>Report"]:::report
 
         N5 --> N7
         N6 --> N7
         N7 --> N8
-        N8 -->|"Evaluate Dimensions"| N9
-    end
-
-    %% === Phase 3: Final Assessment ===
-    subgraph P3 ["Phase 3: Assessment and Reporting"]
-        N10["10. Comprehensive<br/>Evaluation Report"]:::report
-
-        N9 -->|"Quantitative Scores"| N10
-        N8 -.->|"Associated Evidence"| N10
+        N8 -->|"Evaluate"| N9
+        N8 -.->|"Extract"| N10
+        N9 -->|"Compile"| N10
     end
 ```
 
