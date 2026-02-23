@@ -238,44 +238,48 @@ The evaluation framework combines task completion rates with normalized performa
 
 ```mermaid
 graph LR
-    classDef phase1 fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,rx:5,ry:5;
-    classDef phase2 fill:#fce4ec,stroke:#c2185b,stroke-width:2px,rx:5,ry:5;
-    classDef phase3 fill:#fff3e0,stroke:#e65100,stroke-width:2px,rx:5,ry:5;
+    %% Style Definitions
     classDef input fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,rx:5,ry:5;
-    classDef report fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,rx:10,ry:10;
+    classDef phase1 fill:#e3f2fd,stroke:#1565c0,stroke-width:2px;
+    classDef phase2 fill:#fce4ec,stroke:#c2185b,stroke-width:2px;
+    classDef decision fill:#ffffff,stroke:#333,stroke-width:2px,shape:diamond;
+    classDef score fill:#ffcdd2,stroke:#c62828,stroke-width:2px,rx:50,ry:50;
+    classDef report fill:#e0e0e0,stroke:#333,stroke-width:2px,stroke-dasharray: 5 5;
 
-    subgraph Setup and Execution
-        direction LR
-        N1["1. Multi-Domain<br/>Benchmarks"]:::input
-        N2["2. Baselines &<br/>LLMs Setup"]:::phase1
-        N3["3. Trajectory<br/>Execution"]:::phase1
-        
-        N1 --> N3
-        N2 --> N3
+    %% === Benchmark Execution ===
+    subgraph Phase1 ["Phase 1: Benchmark Execution and Trajectory Capture"]
+        Tasks["1. Multi Domain Benchmarks<br/>Math ML and Open Tasks"]:::input
+        Agent["2. Target Agent Execution"]:::phase1
+        Trajectory["3. Execution Trajectory<br/>Logs and Outputs"]:::input
+
+        Tasks --> Agent
+        Agent -->|Record Process| Trajectory
     end
 
-    subgraph Multidimensional Metrics
-        direction LR
-        N4["4. Task Completion<br/>Rate (CR)"]:::phase2
-        N5["5. Normalized Performance<br/>Score (NPS)"]:::phase2
-        N6["6. Comprehensive<br/>Score (CS)"]:::phase2
+    %% ===  Metric Scoring Logic ===
+    subgraph Phase2 ["Phase 2: Dual Metric Verification Logic"]
+        StepCheck{"4. Step Execution<br/>Valid and Compliant?"}:::decision
+        CR(("5. Completion<br/>Rate Score")):::score
+        PerfCheck{"6. Raw Task Metrics<br/>Standardized?"}:::decision
+        NPS(("7. Normalized<br/>Performance Score")):::score
+        CS(("8. Comprehensive<br/>Weighted Score")):::score
+
+        Trajectory -->|Extract Steps| StepCheck
+        StepCheck --"Yes / Partial / No"--> CR
         
-        N3 --> N4
-        N3 --> N5
-        N4 & N5 --> N6
+        Trajectory -->|Extract Results| PerfCheck
+        PerfCheck --"Normalize to 0-1 Scale"--> NPS
+        
+        CR & NPS -->|Aggregate| CS
     end
 
-    subgraph In-depth Analysis
-        direction LR
-        N7["7. Efficiency Metrics<br/>(Cost & Latency)"]:::phase3
-        N8["8. Core Module<br/>Ablation"]:::phase3
-        N9["9. Advanced LLM<br/>Comparison"]:::phase3
-        N10["10. Final Evaluation<br/>Report"]:::report
-        
-        N6 --> N7
-        N7 --> N8
-        N8 --> N9
-        N9 --> N10
+    %% === Analysis and Profiling ===
+    subgraph Phase3 ["Phase 3: Deep Analysis and Profiling"]
+        Efficiency["9. Cost and Latency<br/>Profiling"]:::phase2
+        Report["10. Final Evaluation<br/>Report"]:::report
+
+        CS --> Efficiency
+        Efficiency --> Report
     end
 ```
 
@@ -303,7 +307,7 @@ graph LR
     classDef score fill:#ffcdd2,stroke:#c62828,stroke-width:2px,rx:50,ry:50;
     classDef report fill:#e0e0e0,stroke:#333,stroke-width:2px,stroke-dasharray: 5 5;
 
-    %% ===Heterogeneous Execution ===
+    %% === Execution ===
     subgraph Phase1 ["Phase 1: Execution and Trajectory Capture"]
         Query["1. Analytical Query<br/>(User Input)"]:::input
         DataLake["2. Data Lake<br/>(SQL, Text, Vision)"]:::input
