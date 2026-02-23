@@ -273,7 +273,7 @@ graph LR
         CR & NPS -->|Aggregate| CS
     end
 
-    %% === Analysis and Profiling ===
+    %% === Analysis ===
     subgraph Phase3 ["Phase 3: Deep Analysis and Profiling"]
         Efficiency["9. Cost and Latency<br/>Profiling"]:::phase2
         Report["10. Final Evaluation<br/>Report"]:::report
